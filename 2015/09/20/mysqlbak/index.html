@@ -28,7 +28,7 @@
 
 
 
-  <meta name="keywords" content="小风博客,小风网络" />
+  <meta name="keywords" content="Mysql自动备份 Mysql," />
 
 
 
@@ -39,15 +39,22 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.4" />
 
 
-<meta name="description" content="业精于勤而荒于嬉,行成于思而毁于随">
-<meta property="og:type" content="website">
-<meta property="og:title" content="XiaoFeng Blog">
-<meta property="og:url" content="http://xfphp.cn/index.html">
+<meta name="description" content="来说说Mysql在windows下的备份1.Mysql自带的备份语句:mysqldump用来备份的,在cmd下运行,cmd需要管理员权限执行2.前提mysql的变量环境要有的,就是在cmd下能用mysql -uroot -p 能登录,如果不能请以下自行添加
+XP为例:我的电脑-右键属性-高级-环境变量-用户变量添加以下变量名为:PATH
+变量值为mysql路径:C:\wamp\bin\mysql\">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Mysql在windows下的自动备份">
+<meta property="og:url" content="http://xfphp.cn/2015/09/20/mysqlbak/index.html">
 <meta property="og:site_name" content="XiaoFeng Blog">
-<meta property="og:description" content="业精于勤而荒于嬉,行成于思而毁于随">
+<meta property="og:description" content="来说说Mysql在windows下的备份1.Mysql自带的备份语句:mysqldump用来备份的,在cmd下运行,cmd需要管理员权限执行2.前提mysql的变量环境要有的,就是在cmd下能用mysql -uroot -p 能登录,如果不能请以下自行添加
+XP为例:我的电脑-右键属性-高级-环境变量-用户变量添加以下变量名为:PATH
+变量值为mysql路径:C:\wamp\bin\mysql\">
+<meta property="og:updated_time" content="2015-09-20T03:02:46.781Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="XiaoFeng Blog">
-<meta name="twitter:description" content="业精于勤而荒于嬉,行成于思而毁于随">
+<meta name="twitter:title" content="Mysql在windows下的自动备份">
+<meta name="twitter:description" content="来说说Mysql在windows下的备份1.Mysql自带的备份语句:mysqldump用来备份的,在cmd下运行,cmd需要管理员权限执行2.前提mysql的变量环境要有的,就是在cmd下能用mysql -uroot -p 能登录,如果不能请以下自行添加
+XP为例:我的电脑-右键属性-高级-环境变量-用户变量添加以下变量名为:PATH
+变量值为mysql路径:C:\wamp\bin\mysql\">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -57,7 +64,7 @@
   };
 </script>
 
-    <title> XiaoFeng Blog - 业精于勤而荒于嬉,行成于思而毁于随 </title>
+    <title> Mysql在windows下的自动备份 // XiaoFeng Blog </title>
 </head>
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 <!--[if lte IE 8]>
@@ -73,9 +80,7 @@
 
 
 
-<div class="container one-column 
-   page-home 
-">
+<div class="container one-column page-post-detail">
     <div class="headband"></div>
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
         <div class="header-inner"><h1 class="site-meta">
@@ -157,9 +162,9 @@
         <div class="main-inner">
             <div id="content" class="content">
                 
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
@@ -170,9 +175,7 @@
           
           
             
-              <a class="post-title-link" href="/2015/09/20/mysqlbak/" itemprop="url">
-                Mysql在windows下的自动备份
-              </a>
+              Mysql在windows下的自动备份
             
           
         </h1>
@@ -218,373 +221,83 @@
       
 
       
-        
-          <span itemprop="articleBody"><h3 id="来说说Mysql在windows下的备份">来说说Mysql在windows下的备份</h3><p>1.Mysql自带的备份语句:mysqldump用来备份的,在cmd下运行,cmd需要管理员权限执行<br>2.前提mysql的变量环境要有的,就是在cmd下能用mysql -uroot -p 能登录,如果不能请以下自行添加</p>
+        <span itemprop="articleBody"><h3 id="来说说Mysql在windows下的备份">来说说Mysql在windows下的备份</h3><p>1.Mysql自带的备份语句:mysqldump用来备份的,在cmd下运行,cmd需要管理员权限执行<br>2.前提mysql的变量环境要有的,就是在cmd下能用mysql -uroot -p 能登录,如果不能请以下自行添加</p>
 <p>XP为例:我的电脑-右键属性-高级-环境变量-用户变量添加以下<br><code>变量名为:PATH</code></p>
 <p><code>变量值为mysql路径:C:\wamp\bin\mysql\mysql5.6.12\bin;</code><br>在系统环境中找到Path变量,在里面添加:</p>
 <p><code>C:\wamp\bin\mysql\mysql5.6.12\bin;</code></p>
 <p>3.这样就可以在CMD中执行mysqldump来备份了,sjd为要备份的库名,后面跟的是要备份到的位置<br><code>mysqldump -u root -p sjd &gt;c:/back.sql</code><br>随便说下附加数据库吧,注意<strong>‘&lt;’ ‘&gt;’</strong>这个千万不能写错啊,错的后果会让你欲哭无泪<br><code>mysql -u root -p sjd &lt;c:/back.sql</code></p>
 <p>4.现在来说说主题,怎么自动备份,很简单,就是把上面所说的命令写成一个*.cmd文件加入任务计划来实现每天的自动备份,把下面代码自制进txt文件里另存为mysqlbak.cmd 就完成了,备份的名称为back<em>2015月日.sql<br><code>   @echo off<br>set y=%date:~0,4%<br>set m=%date:~5,2%<br>set d=%date:~8,2%<br>mysqldump -usjd -p123456 sjd &gt;c:/back</code></em>%y%%m%%d%.sql<br><br>昨天搭好博客的,今天第一篇技术文档呀,第一次用Markdown还不会用,大家多多支持^-^<br>小风博客<a href="http://xfphp.cn">http://xfphp.cn</a></p>
 </span>
-        
       
     </div>
 
     <footer class="post-footer">
       
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
+        <div class="post-tags">
           
+            <a href="/tags/Mysql自动备份-Mysql/" rel="tag">#Mysql自动备份 Mysql</a>
           
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-prev post-nav-item">
             
-              <a class="post-title-link" href="/2015/09/19/hello-world/" itemprop="url">
-                Hello World
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2015-09-19T21:43:19+08:00" content="2015-09-19">
-            2015-09-19
-          </time>
-        </span>
-
-        
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/随笔/" itemprop="url" rel="index"><span itemprop="name">随笔</span></a></span>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-              &nbsp; | &nbsp;
-              <a href="/2015/09/19/hello-world/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/09/19/hello-world/" itemprop="commentsCount"></span>
-              </a>
-            </span>
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody"><h2 id="Welcome_to_XiaoFeng_Blog">Welcome to XiaoFeng Blog</h2><p>这是一个纯HTML的静态网站,但是还是挺有趣的,GitHub的开源免费空间,<br>折腾了一天多，在github page上看到自己的博客加载下来时，突然有种错综复杂的恍惚感。是的，它不是qq空间，不是新浪博客，不是豆瓣小站，也不是贴吧。它更像是属于自己的一块小小的领地，是自己一点一点搭建起来的,因而我满足于这种归属感。我愿在上面安静劳作。<br>一个农民，通过自身努力终于分到了一块地，不再需要在地主的土地上创造流量价值时，于是翻身作主的他可以宣告说：Hello World。当然这个农民确切来说是个码农,就用这个博客来记录这个码农的点点滴。<br>很喜欢hexo上的很多漂亮的主题,开源的便利,技术的热爱,是最好的动力。</p>
-<h5 id="Welcome_to_XiaoFeng_Blog-1">Welcome to XiaoFeng Blog</h5><p>小风网络: <a href="http://www.hotxf.com" target="_blank" rel="external">www.hotxf.com</a>                                                                2015-9-19 21:26:52 </p>
-</span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2015/09/19/Never-Give-Up/" itemprop="url">
-                Never Give Up
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2015-09-19T20:06:34+08:00" content="2015-09-19">
-            2015-09-19
-          </time>
-        </span>
-
-        
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/随笔/" itemprop="url" rel="index"><span itemprop="name">随笔</span></a></span>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-              &nbsp; | &nbsp;
-              <a href="/2015/09/19/Never-Give-Up/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/09/19/Never-Give-Up/" itemprop="commentsCount"></span>
-              </a>
-            </span>
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <p>如果你的心中想到失败，你就失败！<br>如果你没有必胜的决心，决无任何成就！<br>纵使你想要得到胜利，只要浮现失败的字眼，<br>胜利便不会向你微笑！<br>如果你不认真行事，你就失败！<br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/09/19/Never-Give-Up/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
           </div>
-        
-      
-    </div>
 
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
+          <div class="post-nav-next post-nav-item">
             
-              <a class="post-title-link" href="/2015/09/19/落叶不知秋/" itemprop="url">
-                落叶不知秋
-              </a>
+              <a href="/2015/09/19/hello-world/" rel="next">Hello World</a>
             
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2015-09-19T16:28:39+08:00" content="2015-09-19">
-            2015-09-19
-          </time>
-        </span>
-
-        
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/随笔/" itemprop="url" rel="index"><span itemprop="name">随笔</span></a></span>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-              &nbsp; | &nbsp;
-              <a href="/2015/09/19/落叶不知秋/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/09/19/落叶不知秋/" itemprop="commentsCount"></span>
-              </a>
-            </span>
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <p>许是真老了，少了年少轻狂的冲动，少了与人为敌的霸气。也许还是傻气了，不去计较太多的是非曲直，别人的奉承夸赞。这些，都不重要了，生活在别人的品评之下，实属是在自欺。多年来，何曾不是在自欺的为别人活着？确切说活在别人的认可肯定里。这个社会，这个社会的人文道德，不同人的心性涵养决定了，总有分歧，总有排挤，总有道不同不相为谋。不想树敌，不想与人争个高下，不意味着别人就会宽容你的大度，融汇你的气质，理解你谦让。所以，释然的携一份好心情走在秋天，望花开花落，看天高云淡，听那首《落叶》的歌声看叶的下落！<br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/09/19/落叶不知秋/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
           </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
+        </div>
       
 
       
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
-    
+
+    <div class="post-spread">
       
+        <div class="ds-share flat" data-thread-key="2015/09/20/mysqlbak/"
+     data-title="Mysql在windows下的自动备份"
+     data-content=""
+     data-url="http://xfphp.cn/2015/09/20/mysqlbak/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
 
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2015/09/19/十年/" itemprop="url">
-                新的开始
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2015-09-19T15:40:12+08:00" content="2015-09-19">
-            2015-09-19
-          </time>
-        </span>
-
-        
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/随笔/" itemprop="url" rel="index"><span itemprop="name">随笔</span></a></span>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-              &nbsp; | &nbsp;
-              <a href="/2015/09/19/十年/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/09/19/十年/" itemprop="commentsCount"></span>
-              </a>
-            </span>
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody"><p>www.xfphp.cn</p>
-<p>昨日之事已在风中冷却，明天的回忆会不会被忘却？我想在这黑暗的城市上空飞行，看看灯火里别人的故事是否也如此的彷徨？</p>
-<p>千家灯火万家难。望着他人的幸福，徒生向往；注目他人的难处，油然怜悯。他们时而欢笑，时而落泪。因为小事而倍感幸福，因为小事而万分感伤。</p>
-<p>那些绽放如花的笑容，那些泪洒如雨的忧伤，都随着时间的流逝或被遗忘，或被掩藏。万物皆无法摆脱时间的摆弄。时间是一个随意的雕刻家，雕塑着一幕幕的喜怒哀乐。</p>
-<p>落寞一幕无人视，繁华一曲谁人听。半生浮萍，一世漂泊，肝肠寸断，所为几何？</p>
-</span>
-        
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
       
     </div>
+  </div>
 
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-  </section>
-
-  
 
             </div>
 
             
 
+            
+              <div class="comments" id="comments">
+                
+                  <div class="ds-thread" data-thread-key="2015/09/20/mysqlbak/"
+                       data-title="Mysql在windows下的自动备份" data-url="http://xfphp.cn/2015/09/20/mysqlbak/">
+                  </div>
+                
+              </div>
             
         </div>
 
@@ -601,6 +314,15 @@
   <aside id="sidebar" class="sidebar">
     <div class="sidebar-inner">
 
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
       
 
       <section class="site-overview">
@@ -670,6 +392,17 @@
       </section>
 
       
+        <section class="post-toc-wrap sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#来说说Mysql在windows下的备份"><span class="nav-number">1.</span> <span class="nav-text">来说说Mysql在windows下的备份</span></a></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </section>
+      
 
     </div>
   </aside>
@@ -717,7 +450,7 @@
   
   
   
-  
+    
 
   
     
@@ -736,8 +469,8 @@
   </script>
     
 
+    
   
-
   
   <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
   <script type="text/javascript" src="/js/fancy-box.js?v=0.4.4"></script>
@@ -756,6 +489,165 @@
   <script type="text/javascript" src="/js/search-toggle.js"></script>
 
 
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.4" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 0.4 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    var $tocContent = $('.post-toc-content');
+    if (isDesktop() && CONFIG.sidebar === 'post') {
+      if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+        displaySidebar();
+      }
+    }
+  });
+</script>
+
+
 
 <script type="text/javascript">
     $(document).ready(function () {
@@ -767,27 +659,6 @@
 
 
 
-
-  
-
-  
-    
-  
-
-  <script type="text/javascript">
-    var duoshuoQuery = {short_name:"sjd"};
-    (function() {
-      var ds = document.createElement('script');
-      ds.type = 'text/javascript';ds.async = true;
-      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-      ds.charset = 'UTF-8';
-      (document.getElementsByTagName('head')[0]
-      || document.getElementsByTagName('body')[0]).appendChild(ds);
-    })();
-  </script>
-    
-
-  
 
 
 
