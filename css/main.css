@@ -684,8 +684,8 @@ td {
   font-family: "PT Mono", Consolas, Monaco, Menlo, monospace;
 }
 .post code {
-  background: #eee;
-  text-shadow: 0 1px #fff;
+  background: #ff69b4;
+  text-shadow: 0 1px #0c801d;
   padding: 0 0.3em;
 }
 .post pre code {
