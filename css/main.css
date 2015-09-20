@@ -687,6 +687,7 @@ td {
   background: #ff69b4;
   text-shadow: 0 1px #A0D0A7;
   padding: 0 0.3em;
+  border-radius: 4px;
 }
 .post pre code {
   background: none;
