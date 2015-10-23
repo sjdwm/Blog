@@ -28,7 +28,7 @@
 
 
 
-  <meta name="keywords" content="散文," />
+  <meta name="keywords" content="CentOS7,LNMP,Nginx,mariadb,php," />
 
 
 
@@ -39,16 +39,19 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.4" />
 
 
-<meta name="description" content="如果你的心中想到失败，你就失败！如果你没有必胜的决心，决无任何成就！纵使你想要得到胜利，只要浮现失败的字眼，胜利便不会向你微笑！如果你不认真行事，你就失败！">
+<meta name="description" content="CentOS7+Nginx1.95+mariadb10.0.21+php5.6.141.查看系统版本root@XiaoFeng html]# cat /etc/centos-release
+CentOS Linux release 7.1.1503 (Core)2.安装一些必要的组件[root@XiaoFeng  /]# yum -y install libjpeg-devel libpng-de">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Never Give Up">
-<meta property="og:url" content="http://xfphp.cn/2015/09/19/Never-Give-Up/index.html">
+<meta property="og:title" content="centos7_lnmp_nginx1.95编译安装">
+<meta property="og:url" content="http://xfphp.cn/2015/10/23/centosn-nginx/index.html">
 <meta property="og:site_name" content="XiaoFeng Blog">
-<meta property="og:description" content="如果你的心中想到失败，你就失败！如果你没有必胜的决心，决无任何成就！纵使你想要得到胜利，只要浮现失败的字眼，胜利便不会向你微笑！如果你不认真行事，你就失败！">
-<meta property="og:updated_time" content="2015-09-19T12:18:52.187Z">
+<meta property="og:description" content="CentOS7+Nginx1.95+mariadb10.0.21+php5.6.141.查看系统版本root@XiaoFeng html]# cat /etc/centos-release
+CentOS Linux release 7.1.1503 (Core)2.安装一些必要的组件[root@XiaoFeng  /]# yum -y install libjpeg-devel libpng-de">
+<meta property="og:updated_time" content="2015-10-23T01:43:34.875Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Never Give Up">
-<meta name="twitter:description" content="如果你的心中想到失败，你就失败！如果你没有必胜的决心，决无任何成就！纵使你想要得到胜利，只要浮现失败的字眼，胜利便不会向你微笑！如果你不认真行事，你就失败！">
+<meta name="twitter:title" content="centos7_lnmp_nginx1.95编译安装">
+<meta name="twitter:description" content="CentOS7+Nginx1.95+mariadb10.0.21+php5.6.141.查看系统版本root@XiaoFeng html]# cat /etc/centos-release
+CentOS Linux release 7.1.1503 (Core)2.安装一些必要的组件[root@XiaoFeng  /]# yum -y install libjpeg-devel libpng-de">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -58,7 +61,7 @@
   };
 </script>
 
-    <title> Never Give Up // XiaoFeng Blog </title>
+    <title> centos7_lnmp_nginx1.95编译安装 // XiaoFeng Blog </title>
 </head>
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 <!--[if lte IE 8]>
@@ -169,7 +172,7 @@
           
           
             
-              Never Give Up
+              centos7_lnmp_nginx1.95编译安装
             
           
         </h1>
@@ -178,8 +181,8 @@
       <div class="post-meta">
         <span class="post-time">
           发表于
-          <time itemprop="dateCreated" datetime="2015-09-19T20:06:34+08:00" content="2015-09-19">
-            2015-09-19
+          <time itemprop="dateCreated" datetime="2015-10-23T09:18:33+08:00" content="2015-10-23">
+            2015-10-23
           </time>
         </span>
 
@@ -187,7 +190,7 @@
           <span class="post-category" >
             &nbsp; | &nbsp; 分类于
             
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/随笔/" itemprop="url" rel="index"><span itemprop="name">随笔</span></a></span>
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/CentOS/" itemprop="url" rel="index"><span itemprop="name">CentOS</span></a></span>
 
               
               
@@ -200,8 +203,8 @@
           
             <span class="post-comments-count">
               &nbsp; | &nbsp;
-              <a href="/2015/09/19/Never-Give-Up/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/09/19/Never-Give-Up/" itemprop="commentsCount"></span>
+              <a href="/2015/10/23/centosn-nginx/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/23/centosn-nginx/" itemprop="commentsCount"></span>
               </a>
             </span>
           
@@ -215,8 +218,16 @@
       
 
       
-        <span itemprop="articleBody"><p>如果你的心中想到失败，你就失败！<br>如果你没有必胜的决心，决无任何成就！<br>纵使你想要得到胜利，只要浮现失败的字眼，<br>胜利便不会向你微笑！<br>如果你不认真行事，你就失败！<br><a id="more"></a><br>我们在大自然宇宙中发现，<br>成功起源于人类的意志力。<br>一切皆由人类的精神状态而决定！<br>如果你想到落后，你就落后！<br>如果你想要晋升到最高地位，<br>在胜利到手之前，必定要拥有我一定做得到的信念！<br>人生的战果，并非强势快速就能得到，<br>所有最后获得胜利的人，<br>都是坚信我一定做的到的人！</p>
-<p>2015-9-19 20:10:37   Powered by 小风网络</p>
+        <span itemprop="articleBody"><h3 id="CentOS7+Nginx1-95+mariadb10-0-21+php5-6-14">CentOS7+Nginx1.95+mariadb10.0.21+php5.6.14</h3><p>1.查看系统版本<br><code>root@XiaoFeng html]# cat /etc/centos-release
+CentOS Linux release 7.1.1503 (Core)</code><br>2.安装一些必要的组件<br><code>[root@XiaoFeng  /]# yum -y install libjpeg-devel libpng-devel libtiff-devel fontconfig-devel freetype-devel libXpm-devel gettext-devel openssl-devel libtool-ltdl-devel gcc *c++* ncursesncurses-devel</code><br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">[root@XiaoFeng ~]<span class="preprocessor"># wget http:<span class="comment">//exim.mirror.fr/pcre/pcre-8.37.tar.gz </span></span></span><br><span class="line">[root@XiaoFeng  lnmp]<span class="preprocessor"># tar -zxvf pcre-<span class="number">8.37</span>.tar.gz</span></span><br><span class="line">[root@XiaoFeng  lnmp]<span class="preprocessor"># cd pcre-<span class="number">8.37</span></span></span><br><span class="line">[root@XiaoFeng  pcre-<span class="number">8.37</span>]<span class="preprocessor"># ./configure</span></span><br><span class="line">[root@XiaoFeng  pcre-<span class="number">8.37</span>]<span class="preprocessor"># make &amp;&amp; make install</span></span><br><span class="line">[root@XiaoFeng  html]<span class="preprocessor"># yum -y install pcre-devel</span></span><br><span class="line">[root@XiaoFeng  lnmp]<span class="preprocessor"># tar -zxvf nginx-<span class="number">1.9</span><span class="number">.5</span>.tar.gz</span></span><br><span class="line">[root@XiaoFeng  lnmp]<span class="preprocessor"># cd nginx-<span class="number">1.9</span><span class="number">.5</span></span></span><br><span class="line">[root@XiaoFeng  nginx-<span class="number">1.9</span><span class="number">.5</span>]<span class="preprocessor"># useradd nginx</span></span><br><span class="line">[root@XiaoFeng nginx-<span class="number">1.9</span><span class="number">.5</span>]<span class="preprocessor">#  ./configure --user=nginx --group=nginx --prefix=/usr/local/nginx/ --with-http_stub_status_module --with-http_ssl_module --with-sha1=/usr/lib</span></span><br><span class="line">[root@XiaoFeng nginx-<span class="number">1.9</span><span class="number">.5</span>]<span class="preprocessor"># make &amp;&amp; make install</span></span><br><span class="line">[root@XiaoFeng  /]<span class="preprocessor"># cd /usr/local/nginx/sbin/</span></span><br><span class="line">[root@XiaoFeng  /]<span class="preprocessor"># ./nginx    <span class="comment">//启动Nginx</span></span></span><br></pre></td></tr></table></figure></p>
+<p>3.添加Nginx开机启动<br>启动脚本<br><code>vim /usr/lib/systemd/system/nginx.service</code></p>
+<p>#输入下面内容，并保存<br><figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">[<span class="constant">Unit</span>]</span><br><span class="line"><span class="constant">Description</span>=nginx - high performance web server</span><br><span class="line"><span class="constant">Documentation</span>=<span class="symbol">http:</span>/<span class="regexp">/nginx.org/en</span><span class="regexp">/docs/</span></span><br><span class="line"><span class="constant">After</span>=network.target remote-fs.target nss-lookup.target</span><br><span class="line"></span><br><span class="line">[<span class="constant">Service</span>]</span><br><span class="line"><span class="constant">Type</span>=forking</span><br><span class="line"><span class="constant">PIDFile</span>=<span class="regexp">/usr/local</span><span class="regexp">/nginx/logs</span><span class="regexp">/nginx.pid</span><br><span class="line">ExecStartPre=/usr</span><span class="regexp">/local/nginx</span><span class="regexp">/sbin/nginx</span> -t -c /usr/local/nginx/conf/nginx.conf</span><br><span class="line"><span class="constant">ExecStart</span>=<span class="regexp">/usr/local</span><span class="regexp">/nginx/sbin</span><span class="regexp">/nginx -c /usr</span><span class="regexp">/local/nginx</span><span class="regexp">/conf/nginx</span>.conf</span><br><span class="line"><span class="constant">ExecReload</span>=<span class="regexp">/bin/kill</span> -s <span class="constant">HUP</span> <span class="variable">$MAINPID</span></span><br><span class="line"><span class="constant">ExecStop</span>=<span class="regexp">/bin/kill</span> -s <span class="constant">QUIT</span> <span class="variable">$MAINPID</span></span><br><span class="line"><span class="constant">PrivateTmp</span>=<span class="literal">true</span></span><br><span class="line"></span><br><span class="line">[<span class="constant">Install</span>]</span><br><span class="line"><span class="constant">WantedBy</span>=multi-user.target</span><br></pre></td></tr></table></figure></p>
+<p>#保存为nginx.service<br>4.修改权限<br><code>[root@XiaoFeng  /]#chmod +x /usr/lib/systemd/system/nginx.service</code><br>5.开机启动<br><code>[root@XiaoFeng  /]#systemctl enable nginx.service</code></p>
+<p>#现在可以使用下面的指令来控制nginx啦<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ systemctl start nginx<span class="class">.service</span></span><br><span class="line">$ systemctl reload nginx<span class="class">.service</span></span><br><span class="line">$ systemctl restart nginx<span class="class">.service</span></span><br><span class="line">$ systemctl stop nginx.service</span><br></pre></td></tr></table></figure></p>
+<p>6.查看日志<br><code>[root@XiaoFeng  /]#journalctl -f -u nginx.service</code></p>
+<p>#注意上面的几个路径,下面这几个路径是你的nginx安装的目录，务必不要弄错。<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">PIDFile=<span class="regexp">/usr/</span>local<span class="regexp">/nginx/</span>logs/nginx.pid</span><br><span class="line">ExecStartPre=<span class="regexp">/usr/</span>local<span class="regexp">/nginx/</span>sbin<span class="regexp">/nginx -t -c /</span>usr<span class="regexp">/local/</span>nginx<span class="regexp">/conf/</span>nginx.conf</span><br><span class="line">ExecStart=<span class="regexp">/usr/</span>local<span class="regexp">/nginx/</span>sbin<span class="regexp">/nginx -c /</span>usr<span class="regexp">/local/</span>nginx<span class="regexp">/conf/</span>nginx.conf</span><br></pre></td></tr></table></figure></p>
+<p>7.启动服务<br><code>[root@XiaoFeng  ~]# systemctl start nginx.service//启动服务</code></p>
+<p><span style="color:hotpink">CentOS7的LNMP环境,CentOS7.1+Nginx1.95+mariadb10.0.21,大家多多支持^-^  </span><br><span style="color:red">小风博客<a href="http://xfphp.cn">http://xfphp.cn</a></span></p>
 </span>
       
     </div>
@@ -225,7 +236,15 @@
       
         <div class="post-tags">
           
-            <a href="/tags/散文/" rel="tag">#散文</a>
+            <a href="/tags/CentOS7/" rel="tag">#CentOS7</a>
+          
+            <a href="/tags/LNMP/" rel="tag">#LNMP</a>
+          
+            <a href="/tags/Nginx/" rel="tag">#Nginx</a>
+          
+            <a href="/tags/mariadb/" rel="tag">#mariadb</a>
+          
+            <a href="/tags/php/" rel="tag">#php</a>
           
         </div>
       
@@ -234,13 +253,11 @@
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/09/19/hello-world/" rel="prev">Hello World</a>
-            
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/09/19/落叶不知秋/" rel="next">落叶不知秋</a>
+              <a href="/2015/09/20/mysqlbak/" rel="next">Mysql在windows下的自动备份</a>
             
           </div>
         </div>
@@ -255,10 +272,10 @@
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2015/09/19/Never-Give-Up/"
-     data-title="Never Give Up"
+        <div class="ds-share flat" data-thread-key="2015/10/23/centosn-nginx/"
+     data-title="centos7_lnmp_nginx1.95编译安装"
      data-content=""
-     data-url="http://xfphp.cn/2015/09/19/Never-Give-Up/">
+     data-url="http://xfphp.cn/2015/10/23/centosn-nginx/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -285,8 +302,8 @@
             
               <div class="comments" id="comments">
                 
-                  <div class="ds-thread" data-thread-key="2015/09/19/Never-Give-Up/"
-                       data-title="Never Give Up" data-url="http://xfphp.cn/2015/09/19/Never-Give-Up/">
+                  <div class="ds-thread" data-thread-key="2015/10/23/centosn-nginx/"
+                       data-title="centos7_lnmp_nginx1.95编译安装" data-url="http://xfphp.cn/2015/10/23/centosn-nginx/">
                   </div>
                 
               </div>
@@ -410,7 +427,7 @@
           <div class="post-toc">
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#CentOS7+Nginx1-95+mariadb10-0-21+php5-6-14"><span class="nav-number">1.</span> <span class="nav-text">CentOS7+Nginx1.95+mariadb10.0.21+php5.6.14</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
