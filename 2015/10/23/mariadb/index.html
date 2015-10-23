@@ -28,7 +28,7 @@
 
 
 
-  <meta name="keywords" content="心情," />
+  <meta name="keywords" content="CentOS7,LNMP,Nginx,mariadb,php," />
 
 
 
@@ -39,16 +39,16 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.4" />
 
 
-<meta name="description" content="Welcome to XiaoFeng Blog这是一个纯HTML的静态网站,但是还是挺有趣的,GitHub的开源免费空间,折腾了一天多，在github page上看到自己的博客加载下来时，突然有种错综复杂的恍惚感。是的，它不是qq空间，不是新浪博客，不是豆瓣小站，也不是贴吧。它更像是属于自己的一块小小的领地，是自己一点一点搭建起来的,因而我满足于这种归属感。我愿在上面安静劳作。一个农民，通过自身">
+<meta name="description" content="CentOS7+Nginx1.95+mariadb10.0.21+php5.6.141.安装MariaDB和一些必要的组件[root@XiaoFeng ~]# yum install -y libxml2 libxml2-devel bison bison-devel2.编译安装Cmake123[root@XiaoFeng lnmp]# tar zxvf cmake-3.3.2.tar.gz[ro">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://xfphp.cn/2015/09/19/hello-world/index.html">
+<meta property="og:title" content="centos7_lnmp_mariadb10.0.21编译安装">
+<meta property="og:url" content="http://xfphp.cn/2015/10/23/mariadb/index.html">
 <meta property="og:site_name" content="XiaoFeng Blog">
-<meta property="og:description" content="Welcome to XiaoFeng Blog这是一个纯HTML的静态网站,但是还是挺有趣的,GitHub的开源免费空间,折腾了一天多，在github page上看到自己的博客加载下来时，突然有种错综复杂的恍惚感。是的，它不是qq空间，不是新浪博客，不是豆瓣小站，也不是贴吧。它更像是属于自己的一块小小的领地，是自己一点一点搭建起来的,因而我满足于这种归属感。我愿在上面安静劳作。一个农民，通过自身">
-<meta property="og:updated_time" content="2015-09-19T13:43:19.453Z">
+<meta property="og:description" content="CentOS7+Nginx1.95+mariadb10.0.21+php5.6.141.安装MariaDB和一些必要的组件[root@XiaoFeng ~]# yum install -y libxml2 libxml2-devel bison bison-devel2.编译安装Cmake123[root@XiaoFeng lnmp]# tar zxvf cmake-3.3.2.tar.gz[ro">
+<meta property="og:updated_time" content="2015-10-23T05:10:24.500Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to XiaoFeng Blog这是一个纯HTML的静态网站,但是还是挺有趣的,GitHub的开源免费空间,折腾了一天多，在github page上看到自己的博客加载下来时，突然有种错综复杂的恍惚感。是的，它不是qq空间，不是新浪博客，不是豆瓣小站，也不是贴吧。它更像是属于自己的一块小小的领地，是自己一点一点搭建起来的,因而我满足于这种归属感。我愿在上面安静劳作。一个农民，通过自身">
+<meta name="twitter:title" content="centos7_lnmp_mariadb10.0.21编译安装">
+<meta name="twitter:description" content="CentOS7+Nginx1.95+mariadb10.0.21+php5.6.141.安装MariaDB和一些必要的组件[root@XiaoFeng ~]# yum install -y libxml2 libxml2-devel bison bison-devel2.编译安装Cmake123[root@XiaoFeng lnmp]# tar zxvf cmake-3.3.2.tar.gz[ro">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -58,7 +58,7 @@
   };
 </script>
 
-    <title> Hello World // XiaoFeng Blog </title>
+    <title> centos7_lnmp_mariadb10.0.21编译安装 // XiaoFeng Blog </title>
 </head>
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 <!--[if lte IE 8]>
@@ -169,7 +169,7 @@
           
           
             
-              Hello World
+              centos7_lnmp_mariadb10.0.21编译安装
             
           
         </h1>
@@ -178,8 +178,8 @@
       <div class="post-meta">
         <span class="post-time">
           发表于
-          <time itemprop="dateCreated" datetime="2015-09-19T21:43:19+08:00" content="2015-09-19">
-            2015-09-19
+          <time itemprop="dateCreated" datetime="2015-10-23T12:40:15+08:00" content="2015-10-23">
+            2015-10-23
           </time>
         </span>
 
@@ -187,7 +187,23 @@
           <span class="post-category" >
             &nbsp; | &nbsp; 分类于
             
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/随笔/" itemprop="url" rel="index"><span itemprop="name">随笔</span></a></span>
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/CentOS/" itemprop="url" rel="index"><span itemprop="name">CentOS</span></a></span>
+
+              
+              
+                ， 
+              
+
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/CentOS/Nginx-，mariadb/" itemprop="url" rel="index"><span itemprop="name">Nginx ，mariadb</span></a></span>
+
+              
+              
+                ， 
+              
+
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/CentOS/Nginx-，mariadb/php/" itemprop="url" rel="index"><span itemprop="name">php</span></a></span>
 
               
               
@@ -200,8 +216,8 @@
           
             <span class="post-comments-count">
               &nbsp; | &nbsp;
-              <a href="/2015/09/19/hello-world/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/09/19/hello-world/" itemprop="commentsCount"></span>
+              <a href="/2015/10/23/mariadb/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/23/mariadb/" itemprop="commentsCount"></span>
               </a>
             </span>
           
@@ -215,8 +231,12 @@
       
 
       
-        <span itemprop="articleBody"><h2 id="Welcome_to_XiaoFeng_Blog">Welcome to XiaoFeng Blog</h2><p>这是一个纯HTML的静态网站,但是还是挺有趣的,GitHub的开源免费空间,<br>折腾了一天多，在github page上看到自己的博客加载下来时，突然有种错综复杂的恍惚感。是的，它不是qq空间，不是新浪博客，不是豆瓣小站，也不是贴吧。它更像是属于自己的一块小小的领地，是自己一点一点搭建起来的,因而我满足于这种归属感。我愿在上面安静劳作。<br>一个农民，通过自身努力终于分到了一块地，不再需要在地主的土地上创造流量价值时，于是翻身作主的他可以宣告说：Hello World。当然这个农民确切来说是个码农,就用这个博客来记录这个码农的点点滴。<br>很喜欢hexo上的很多漂亮的主题,开源的便利,技术的热爱,是最好的动力。</p>
-<h5 id="Welcome_to_XiaoFeng_Blog-1">Welcome to XiaoFeng Blog</h5><p>小风网络: <a href="http://www.hotxf.com" target="_blank" rel="external">www.hotxf.com</a>                                                                2015-9-19 21:26:52 </p>
+        <span itemprop="articleBody"><h3 id="CentOS7+Nginx1-95+mariadb10-0-21+php5-6-14">CentOS7+Nginx1.95+mariadb10.0.21+php5.6.14</h3><p>1.安装MariaDB和一些必要的组件<br><code>[root@XiaoFeng ~]# yum install -y libxml2 libxml2-devel bison bison-devel</code><br>2.编译安装Cmake<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@XiaoFeng lnmp]<span class="preprocessor"># tar zxvf cmake-<span class="number">3.3</span><span class="number">.2</span>.tar.gz</span></span><br><span class="line">[root@XiaoFeng cmake-<span class="number">3.3</span><span class="number">.2</span>]<span class="preprocessor"># ./bootstrap</span></span><br><span class="line">[root@XiaoFeng cmake-<span class="number">3.3</span><span class="number">.2</span>]<span class="preprocessor"># make &amp;&amp; make install</span></span><br></pre></td></tr></table></figure></p>
+<p>3.安装MariaDB<br><code>[root@XiaoFeng lnmp]# tar zxvf mariadb-10.0.21.tar.gz</code></p>
+<p>#####配置用户和用户组/数据目录：<br>创建mysql组<br><code>[root@XiaoFeng mariadb-10.0.21]# groupadd mysql</code><br>创建mysql用户，并加入到mysql组，不允许mysql用户直接登录系统<br><code>[root@XiaoFeng mariadb-10.0.21]#useradd -g mysql mysql -s /bin/false</code><br>创建MariaDB数据库存放目录<br><code>[root@XiaoFeng mariadb-10.0.21]#mkdir -p /data/mysql</code><br>设置MariaDB数据库目录权限<br><code>[root@XiaoFeng mariadb-10.0.21]#chown -R mysql:mysql /data/mysql</code><br>创建MariaDB安装目录<br><code>[root@XiaoFeng mariadb-10.0.21]#mkdir -p /usr/local/mysql</code><br>设置目录权限<br><code>[root@localhost mariadb-10.0.21]#  chown -R mysql:mysql /usr/local/mysql</code></p>
+<p>#####开始编译安装<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@XiaoFeng mariadb-<span class="number">10.0</span><span class="number">.21</span>]<span class="preprocessor"># cmake . -DCMAKE_INSTALL_PREFIX=/usr/local/mysql  -DMYSQL_DATADIR=/data/mysql  -DSYSCONFDIR=/etc </span></span><br><span class="line">[root@XiaoFeng mariadb-<span class="number">10.0</span><span class="number">.21</span>]<span class="preprocessor">#make &amp;&amp; make install</span></span><br></pre></td></tr></table></figure></p>
+<p>拷贝配置文件（注意：如果/etc目录下面默认有一个my.cnf，直接覆盖即可）<br><code>[root@XiaoFeng mariadb-10.0.21]#cd /usr/local/mysql</code><br><code>[root@XiaoFeng mysql]#cp ./support-files/my-huge.cnf  /etc/my.cnf</code><br>编辑配置文件,在 [mysqld] 部分增加<br>datadir = /data/mysql  #添加MariaDB数据库路径<br><code>[root@XiaoFeng mysql]# vim /etc/my.cnf</code><br>初始化数据库<br><code>[root@XiaoFeng mysql]#./scripts/mysql_install_db --user=mysql --datadir=/data/mysql</code><br>复制启动文件到开机自动启动<br><code>[root@XiaoFeng mysql]#cp ./support-files/mysql.server /etc/rc.d/init.d/mysql</code><br>增加执行权限<br><code>[root@XiaoFeng mysql]# chmod 755 /etc/init.d/mysql</code><br>添加到启动服务里<br><code>[root@XiaoFeng mysql]# chkconfig --add mysql</code><br>加入开机启动<br><code>[root@XiaoFeng mysql]# chkconfig mysql on</code><br>查看开机启动<br><code>[root@XiaoFeng mysql]# chkconfig --list mysql</code><br><code>mysql      0:关闭    1:关闭    2:启用    3:启用    4:启用    5:启用    6:关闭</code><br>编辑启动文件加入下面两行<br><code>[root@XiaoFeng mysql]# vim /etc/rc.d/init.d/mysql</code><br>basedir = /usr/local/mysql  #MariaDB程序安装路径<br>datadir = /data/mysql  #MariaDB数据库存放目录<br>启动服务<br><code>[root@XiaoFeng mysql]# service mysql start</code><br>把MariaDB服务加入系统环境变量：在最后添加下面这一行<br>export PATH=$PATH:/usr/local/mysql/bin<br><code>[root@XiaoFeng mysql]# vim /etc/profile</code><br>下面这两行把MariaDB的库文件链接到系统默认的位置，这样你在编译类似PHP等软件时可以不用指定MariaDB的库文件地址。<br><code>[root@XiaoFeng mysql]# ln -s /usr/local/mysql/lib/mysql /usr/lib/mysql</code><br><code>[root@XiaoFeng mysql]#ln -s /usr/local/mysql/include/mysql /usr/include/mysql</code><br>需要重启系统，等待系统重新启动之后继续在终端命令行下面操作<br><code>[root@XiaoFeng mysql]# shutdown -r now</code><br>设置MariaDB数据库root账号密码<br><code>[root@XiaoFeng mysql]# mysql_secure_installation</code><br>根据提示按Y 回车输入2次密码<br>或者直接修改密码/usr/local/mysql/bin/mysqladmin -u root -p password “123456” #修改密码<br>重启数据库<br><code>[root@XiaoFeng mysql]# service mysql restart</code><br>输入上面设置的root密码登录到mariadb控制台<br><code>[root@XiaoFeng mysql]# mysql -u root -p</code></p>
+<p><span style="color:hotpink">CentOS7的LNMP环境,CentOS7.1+Nginx1.95+mariadb10.0.21,大家多多支持^-^  </span><br><span style="color:red">小风博客<a href="http://xfphp.cn">http://xfphp.cn</a></span></p>
 </span>
       
     </div>
@@ -225,7 +245,15 @@
       
         <div class="post-tags">
           
-            <a href="/tags/心情/" rel="tag">#心情</a>
+            <a href="/tags/CentOS7/" rel="tag">#CentOS7</a>
+          
+            <a href="/tags/LNMP/" rel="tag">#LNMP</a>
+          
+            <a href="/tags/Nginx/" rel="tag">#Nginx</a>
+          
+            <a href="/tags/mariadb/" rel="tag">#mariadb</a>
+          
+            <a href="/tags/php/" rel="tag">#php</a>
           
         </div>
       
@@ -234,13 +262,11 @@
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/09/20/mysqlbak/" rel="prev">Mysql在windows下的自动备份</a>
-            
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/09/19/Never-Give-Up/" rel="next">Never Give Up</a>
+              <a href="/2015/10/23/centosn-nginx/" rel="next">centos7_lnmp_nginx1.95编译安装</a>
             
           </div>
         </div>
@@ -255,10 +281,10 @@
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2015/09/19/hello-world/"
-     data-title="Hello World"
+        <div class="ds-share flat" data-thread-key="2015/10/23/mariadb/"
+     data-title="centos7_lnmp_mariadb10.0.21编译安装"
      data-content=""
-     data-url="http://xfphp.cn/2015/09/19/hello-world/">
+     data-url="http://xfphp.cn/2015/10/23/mariadb/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -285,8 +311,8 @@
             
               <div class="comments" id="comments">
                 
-                  <div class="ds-thread" data-thread-key="2015/09/19/hello-world/"
-                       data-title="Hello World" data-url="http://xfphp.cn/2015/09/19/hello-world/">
+                  <div class="ds-thread" data-thread-key="2015/10/23/mariadb/"
+                       data-title="centos7_lnmp_mariadb10.0.21编译安装" data-url="http://xfphp.cn/2015/10/23/mariadb/">
                   </div>
                 
               </div>
@@ -410,7 +436,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Welcome_to_XiaoFeng_Blog"><span class="nav-number">1.</span> <span class="nav-text">Welcome to XiaoFeng Blog</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Welcome_to_XiaoFeng_Blog-1"><span class="nav-number">1.0.0.1.</span> <span class="nav-text">Welcome to XiaoFeng Blog</span></a></li></ol></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#CentOS7+Nginx1-95+mariadb10-0-21+php5-6-14"><span class="nav-number">1.</span> <span class="nav-text">CentOS7+Nginx1.95+mariadb10.0.21+php5.6.14</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
