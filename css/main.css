@@ -667,6 +667,7 @@ td {
 }
 .post pre,
 .post .highlight {
+  border-radius: 8px;
   background: #f7f7f7;
   margin: 20px 0;
   padding: 15px;
@@ -674,7 +675,7 @@ td {
   font-size: 13px;
   color: #4d4d4c;
   line-height: 1.2;
-}
+  }
 .post .highlight .gutter pre,
 .post .gist .gist-file .gist-data .line-numbers {
   color: #666;
