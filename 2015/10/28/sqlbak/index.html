@@ -27,7 +27,7 @@
 
 
 
-  <meta name="keywords" content="心情," />
+  <meta name="keywords" content="CentOS7,LNMP,MariaDB,Nginx,linux Mysql备份," />
 
 
 
@@ -38,16 +38,16 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.4" />
 
 
-<meta name="description" content="Welcome to XiaoFeng Blog这是一个纯HTML的静态网站,但是还是挺有趣的,GitHub的开源免费空间,折腾了一天多，在github page上看到自己的博客加载下来时，突然有种错综复杂的恍惚感。是的，它不是qq空间，不是新浪博客，不是豆瓣小站，也不是贴吧。它更像是属于自己的一块小小的领地，是自己一点一点搭建起来的,因而我满足于这种归属感。我愿在上面安静劳作。一个农民，通过自身">
+<meta name="description" content="Mysql在linux服务器上的自动备份脚本,小型web服务器备份脚本1.在根目录创建一个放备份的目录,本例目录名为webbak[root@XiaoFeng  /]#mkdir webbak2.在webbak目录里面再建两个目录一个放*.sql文件,一个放压缩后的包,目录名mysql和sqltar[root@XiaoFeng webbak]#mkdir mysql sqltar3.写脚本放在web">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://xfphp.cn/2015/10/19/hello-world/index.html">
+<meta property="og:title" content="Linux_Mysql备份脚本">
+<meta property="og:url" content="http://xfphp.cn/2015/10/28/sqlbak/index.html">
 <meta property="og:site_name" content="XiaoFeng Blog">
-<meta property="og:description" content="Welcome to XiaoFeng Blog这是一个纯HTML的静态网站,但是还是挺有趣的,GitHub的开源免费空间,折腾了一天多，在github page上看到自己的博客加载下来时，突然有种错综复杂的恍惚感。是的，它不是qq空间，不是新浪博客，不是豆瓣小站，也不是贴吧。它更像是属于自己的一块小小的领地，是自己一点一点搭建起来的,因而我满足于这种归属感。我愿在上面安静劳作。一个农民，通过自身">
-<meta property="og:updated_time" content="2015-10-24T02:50:42.360Z">
+<meta property="og:description" content="Mysql在linux服务器上的自动备份脚本,小型web服务器备份脚本1.在根目录创建一个放备份的目录,本例目录名为webbak[root@XiaoFeng  /]#mkdir webbak2.在webbak目录里面再建两个目录一个放*.sql文件,一个放压缩后的包,目录名mysql和sqltar[root@XiaoFeng webbak]#mkdir mysql sqltar3.写脚本放在web">
+<meta property="og:updated_time" content="2015-10-28T14:27:04.912Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to XiaoFeng Blog这是一个纯HTML的静态网站,但是还是挺有趣的,GitHub的开源免费空间,折腾了一天多，在github page上看到自己的博客加载下来时，突然有种错综复杂的恍惚感。是的，它不是qq空间，不是新浪博客，不是豆瓣小站，也不是贴吧。它更像是属于自己的一块小小的领地，是自己一点一点搭建起来的,因而我满足于这种归属感。我愿在上面安静劳作。一个农民，通过自身">
+<meta name="twitter:title" content="Linux_Mysql备份脚本">
+<meta name="twitter:description" content="Mysql在linux服务器上的自动备份脚本,小型web服务器备份脚本1.在根目录创建一个放备份的目录,本例目录名为webbak[root@XiaoFeng  /]#mkdir webbak2.在webbak目录里面再建两个目录一个放*.sql文件,一个放压缩后的包,目录名mysql和sqltar[root@XiaoFeng webbak]#mkdir mysql sqltar3.写脚本放在web">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -64,7 +64,7 @@
     s.parentNode.insertBefore(bp, s);
 })();
 </script>
-    <title> Hello World // XiaoFeng Blog </title>
+    <title> Linux_Mysql备份脚本 // XiaoFeng Blog </title>
 </head>
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 <!--[if lte IE 8]>
@@ -175,7 +175,7 @@
           
           
             
-              Hello World
+              Linux_Mysql备份脚本
             
           
         </h1>
@@ -184,8 +184,8 @@
       <div class="post-meta">
         <span class="post-time">
           发表于
-          <time itemprop="dateCreated" datetime="2015-10-19T21:26:52+08:00" content="2015-10-19">
-            2015-10-19
+          <time itemprop="dateCreated" datetime="2015-10-28T21:08:01+08:00" content="2015-10-28">
+            2015-10-28
           </time>
         </span>
 
@@ -193,7 +193,23 @@
           <span class="post-category" >
             &nbsp; | &nbsp; 分类于
             
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/随笔/" itemprop="url" rel="index"><span itemprop="name">随笔</span></a></span>
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/CentOS/" itemprop="url" rel="index"><span itemprop="name">CentOS</span></a></span>
+
+              
+              
+                ， 
+              
+
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/CentOS/LNMP/" itemprop="url" rel="index"><span itemprop="name">LNMP</span></a></span>
+
+              
+              
+                ， 
+              
+
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/CentOS/LNMP/Mysql/" itemprop="url" rel="index"><span itemprop="name">Mysql</span></a></span>
 
               
               
@@ -206,8 +222,8 @@
           
             <span class="post-comments-count">
               &nbsp; | &nbsp;
-              <a href="/2015/10/19/hello-world/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/19/hello-world/" itemprop="commentsCount"></span>
+              <a href="/2015/10/28/sqlbak/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/28/sqlbak/" itemprop="commentsCount"></span>
               </a>
             </span>
           
@@ -222,8 +238,13 @@
       
 
       
-        <span itemprop="articleBody"><h2 id="Welcome_to_XiaoFeng_Blog">Welcome to XiaoFeng Blog</h2><p>这是一个纯HTML的静态网站,但是还是挺有趣的,GitHub的开源免费空间,<br>折腾了一天多，在github page上看到自己的博客加载下来时，突然有种错综复杂的恍惚感。是的，它不是qq空间，不是新浪博客，不是豆瓣小站，也不是贴吧。它更像是属于自己的一块小小的领地，是自己一点一点搭建起来的,因而我满足于这种归属感。我愿在上面安静劳作。<br>一个农民，通过自身努力终于分到了一块地，不再需要在地主的土地上创造流量价值时，于是翻身作主的他可以宣告说：Hello World。当然这个农民确切来说是个码农,就用这个博客来记录这个码农的点点滴。<br>很喜欢hexo上的很多漂亮的主题,开源的便利,技术的热爱,是最好的动力。</p>
-<h5 id="Welcome_to_XiaoFeng_Blog-1">Welcome to XiaoFeng Blog</h5><p>小风网络: <a href="http://www.hotxf.com" target="_blank" rel="external">www.hotxf.com</a>                                                                2015-9-19 21:26:52 </p>
+        <span itemprop="articleBody"><h3 id="Mysql在linux服务器上的自动备份脚本,小型web服务器备份脚本">Mysql在linux服务器上的自动备份脚本,小型web服务器备份脚本</h3><p>1.在根目录创建一个放备份的目录,本例目录名为webbak<br><code>[root@XiaoFeng  /]#mkdir webbak</code><br>2.在webbak目录里面再建两个目录一个放*.sql文件,一个放压缩后的包,目录名mysql和sqltar<br><code>[root@XiaoFeng webbak]#mkdir mysql sqltar</code><br>3.写脚本放在webbak目录里<br><code>[root@XiaoFeng webbak]#vim sqlbak.sh</code><br>写入下面内容,自己修改你的<span style="color:red">数据库名/用户名/密码</span><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="shebang">#!/bin/sh</span></span><br><span class="line"><span class="comment">#用于数据库备份,要给权限chmod +x sqlbak.sh</span></span><br><span class="line"><span class="comment">#[root@XiaoFeng webbak]# crontab -e   //写入下面内容加入任务计划定时每天23点30分进行备份</span></span><br><span class="line"><span class="comment">#30 23 * * * /webbak/bak.sh</span></span><br><span class="line"><span class="comment">#database name</span></span><br><span class="line">DB_NAME=<span class="string">"sj"</span></span><br><span class="line"><span class="comment">#database username</span></span><br><span class="line">DB_USER=<span class="string">"root"</span></span><br><span class="line"><span class="comment">#database password</span></span><br><span class="line">DB_PASS=<span class="string">"123456"</span></span><br><span class="line"><span class="comment">#当前日期时间字符串 例:2015_10_28_12_12(年月日时分)</span></span><br><span class="line">DATE=`date +%Y_%m_%d_%H_%M`</span><br><span class="line"><span class="comment">#备份到目录的路径</span></span><br><span class="line">BAKUP_FILE=/webbak/mysql/<span class="variable">$DB_NAME_</span><span class="variable">$DATE</span>.sql</span><br><span class="line"><span class="comment">#执行mysqldump命令来备份的,环境变量要有的(没有环境变量可以写绝对路径)</span></span><br><span class="line">mysqldump -u <span class="variable">$DB_USER</span> -p<span class="variable">$DB_PASS</span> <span class="variable">$DB_NAME</span> &gt;<span class="variable">$BAKUP_FILE</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">'Backup success'</span></span><br></pre></td></tr></table></figure></p>
+<p>4.要给脚本执行权限<br><code>[root@XiaoFeng webbak]#chmod +x sqlbak.sh</code><br>5.建个定时计划,来每天晚上23点30分来执行该脚本,输入下面登录后会打开vim<br><code>[root@XiaoFeng webbak]#crontab -e</code><br>6.在打开的vim界面里写入<br><code>30 23 * * * /webbak/bak.sh</code><br>这个计划完成了,但是每天都备份*.sql文件太多了,查看时比较眼晕,下面再来为每个月的备份打包成一个文件,并删除打包过的文件</p>
+<h4 id="第二个脚本,分月打包*-sql">第二个脚本,分月打包*.sql</h4><p>1.写一个打包脚本<br><code>[root@XiaoFeng webbak]#vim sqltar.sh</code><br>2.写入下面内容,自己修改你的<span style="color:red">数据库名</span><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="shebang">#!/bin/sh</span></span><br><span class="line"><span class="comment">#用于打包已经备份的数据库,按月打包</span></span><br><span class="line"><span class="comment">#[root@XiaoFeng webbak]# crontab -e   //写入下面内容加入任务计划定时每月第1天23点30分进行备份</span></span><br><span class="line"><span class="comment">#30 23 1 * * /webbak/sqltar.sh</span></span><br><span class="line"><span class="comment">#databse name</span></span><br><span class="line">DB_NAME=<span class="string">"sj"</span></span><br><span class="line"><span class="comment">#当前日期时间字符串 例:2015_10_28_12_12(年月日时分)</span></span><br><span class="line">DATE=`date +%Y_%m_%d_%H_%M`</span><br><span class="line"><span class="comment">#要备份文件的目录的路径</span></span><br><span class="line">FILE=/webbak/mysql/*.sql</span><br><span class="line"><span class="comment">#备份到目录的路径</span></span><br><span class="line">BAKUP_FILE=/webbak/sqltar/<span class="variable">$DB_NAME_</span><span class="variable">$DATE</span>.tar.gz</span><br><span class="line"><span class="comment">#执行mysqldump命令来备份的,环境变量要有的(没有环境变量可以写绝对路径)</span></span><br><span class="line">tar -zcf  <span class="variable">$BAKUP_FILE</span> <span class="variable">$FILE</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">'Backup success'</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">'开始删除*.sql文件'</span></span><br><span class="line">rm -rf <span class="variable">$FILE</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">'已经删除多余的sql文件'</span></span><br></pre></td></tr></table></figure></p>
+<p>3.要给脚本执行权限<br><code>[root@XiaoFeng webbak]#chmod +x sqltar.sh</code><br>4.建个定时计划,来每月第1天23点30分执行该脚本,输入下面登录后会打开vim<br><code>[root@XiaoFeng webbak]#crontab -e</code><br>5.在打开的vim界面里加入一行<br><code>30 23 1 * * /webbak/sqltar.sh</code></p>
+<h4 id="第三个脚本,每周打包下网站目录备份">第三个脚本,每周打包下网站目录备份</h4><p>1.写一个打包脚本<br><code>[root@XiaoFeng webbak]#vim webbak.sh</code><br>2.写入下面内容,自己修改你的<span style="color:red">网站名和网站的目录</span><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="shebang">#!/bin/sh</span></span><br><span class="line"><span class="comment">#用于打包已经备份的数据库,按月打包</span></span><br><span class="line"><span class="comment">#[root@XiaoFeng webbak]# crontab -e   //写入下面内容加入任务计划定时每个周天23点30分进行备份</span></span><br><span class="line"><span class="comment">#30 23 1 * * /webbak/sqltar.sh</span></span><br><span class="line"><span class="comment">#web name</span></span><br><span class="line">DB_NAME=<span class="string">"sjd"</span></span><br><span class="line"><span class="comment">#当前日期时间字符串 例:2015_10_28_12_12(年月日时分)</span></span><br><span class="line">DATE=`date +%Y_%m_%d_%H_%M`</span><br><span class="line"><span class="comment">#要备份文件的目录的路径</span></span><br><span class="line">FILE=/usr/<span class="built_in">local</span>/nginx/html/*</span><br><span class="line"><span class="comment">#备份到目录的路径</span></span><br><span class="line">BAKUP_FILE=/webbak/web/<span class="variable">$DB_NAME_</span><span class="variable">$DATE</span>.tar.gz</span><br><span class="line"><span class="comment">#执行tar命令来备份的</span></span><br><span class="line">tar -zcf  <span class="variable">$BAKUP_FILE</span> <span class="variable">$FILE</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">'Backup success'</span></span><br></pre></td></tr></table></figure></p>
+<p>3.要给脚本执行权限<br><code>[root@XiaoFeng webbak]#chmod +x webbak.sh</code><br>4.建个定时计划,来每周天23点30分执行该脚本,输入下面登录后会打开vim<br><code>[root@XiaoFeng webbak]#crontab -e</code><br>5.在打开的vim界面里加入一行<br><code>30 23 * * 7 /webbak/webbak.sh</code></p>
+<p><span style="color:hotpink">CentOS7的LNMP环境,mysql自动备份计划,转载请注明出处^-^  </span><br><span style="color:red">小风博客<a href="http://xfphp.cn">http://xfphp.cn</a></span>&#8195;&#8194;&#8195;&#8194;<span style="color:red">小风网络<a href="http://www.hotxf.com" target="_blank" rel="external">http://www.hotxf.com</a></span></p>
 </span>
       
     </div>
@@ -232,7 +253,15 @@
       
         <div class="post-tags">
           
-            <a href="/tags/心情/" rel="tag">#心情</a>
+            <a href="/tags/CentOS7/" rel="tag">#CentOS7</a>
+          
+            <a href="/tags/LNMP/" rel="tag">#LNMP</a>
+          
+            <a href="/tags/MariaDB/" rel="tag">#MariaDB</a>
+          
+            <a href="/tags/Nginx/" rel="tag">#Nginx</a>
+          
+            <a href="/tags/linux-Mysql备份/" rel="tag">#linux Mysql备份</a>
           
         </div>
       
@@ -241,13 +270,11 @@
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/10/23/centos-nginx/" rel="prev">CentOS7_LNMP(第一篇)_Nginx1.95编译安装</a>
-            
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/10/19/十年/" rel="next">新的开始</a>
+              <a href="/2015/10/25/mysql/" rel="next">Mysql5.6.26编译安装</a>
             
           </div>
         </div>
@@ -262,10 +289,10 @@
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2015/10/19/hello-world/"
-     data-title="Hello World"
+        <div class="ds-share flat" data-thread-key="2015/10/28/sqlbak/"
+     data-title="Linux_Mysql备份脚本"
      data-content=""
-     data-url="http://xfphp.cn/2015/10/19/hello-world/">
+     data-url="http://xfphp.cn/2015/10/28/sqlbak/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -292,8 +319,8 @@
             
               <div class="comments" id="comments">
                 
-                  <div class="ds-thread" data-thread-key="2015/10/19/hello-world/"
-                       data-title="Hello World" data-url="http://xfphp.cn/2015/10/19/hello-world/">
+                  <div class="ds-thread" data-thread-key="2015/10/28/sqlbak/"
+                       data-title="Linux_Mysql备份脚本" data-url="http://xfphp.cn/2015/10/28/sqlbak/">
                   </div>
                 
               </div>
@@ -417,7 +444,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Welcome_to_XiaoFeng_Blog"><span class="nav-number">1.</span> <span class="nav-text">Welcome to XiaoFeng Blog</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Welcome_to_XiaoFeng_Blog-1"><span class="nav-number">1.0.0.1.</span> <span class="nav-text">Welcome to XiaoFeng Blog</span></a></li></ol></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Mysql在linux服务器上的自动备份脚本,小型web服务器备份脚本"><span class="nav-number">1.</span> <span class="nav-text">Mysql在linux服务器上的自动备份脚本,小型web服务器备份脚本</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#第二个脚本,分月打包*-sql"><span class="nav-number">1.1.</span> <span class="nav-text">第二个脚本,分月打包*.sql</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第三个脚本,每周打包下网站目录备份"><span class="nav-number">1.2.</span> <span class="nav-text">第三个脚本,每周打包下网站目录备份</span></a></li></ol></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>

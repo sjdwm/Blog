@@ -48,7 +48,7 @@ XP为例:我的电脑-右键属性-高级-环境变量-用户变量添加以下�
 <meta property="og:description" content="来说说Mysql在windows下的备份1.Mysql自带的备份语句:mysqldump用来备份的,在cmd下运行,cmd需要管理员权限执行2.前提mysql的变量环境要有的,就是在cmd下能用mysql -uroot -p 能登录,如果不能请以下自行添加
 XP为例:我的电脑-右键属性-高级-环境变量-用户变量添加以下变量名为:PATH
 变量值为mysql路径:C:\wamp\bin\mysql\">
-<meta property="og:updated_time" content="2015-10-23T04:36:30.906Z">
+<meta property="og:updated_time" content="2015-10-28T14:28:08.638Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mysql在windows下的自动备份">
 <meta name="twitter:description" content="来说说Mysql在windows下的备份1.Mysql自带的备份语句:mysqldump用来备份的,在cmd下运行,cmd需要管理员权限执行2.前提mysql的变量环境要有的,就是在cmd下能用mysql -uroot -p 能登录,如果不能请以下自行添加
@@ -234,7 +234,7 @@ XP为例:我的电脑-右键属性-高级-环境变量-用户变量添加以下�
 <p><code>C:\wamp\bin\mysql\mysql5.6.12\bin;</code></p>
 <p>3.这样就可以在CMD中执行mysqldump来备份了,sjd为要备份的库名,后面跟的是要备份到的位置<br><code>mysqldump -u root -p sjd &gt;c:/back.sql</code><br>随便说下附加数据库吧,注意<strong>‘&lt;’ ‘&gt;’</strong>这个千万不能写错啊,错的后果会让你欲哭无泪<br><code>mysql -u root -p sjd &lt;c:/back.sql</code></p>
 <p>4.现在来说说主题,怎么自动备份,很简单,就是把上面所说的命令写成一个*.cmd文件加入任务计划来实现每天的自动备份,把下面代码自制进txt文件里另存为mysqlbak.cmd 就完成了,备份的名称为back<em>2015月日.sql<br><code>   @echo off<br>set y=%date:~0,4%<br>set m=%date:~5,2%<br>set d=%date:~8,2%<br>mysqldump -usjd -p123456 sjd &gt;c:/back</code></em><code>%y%%m%%d%.sql</code>   </p>
-<p><br><span style="color:hotpink">昨天搭好博客的,今天第一篇技术文档呀,第一次用Markdown还不会用,大家多多支持^-^  </span><br><span style="color:red">小风博客<a href="http://xfphp.cn">http://xfphp.cn</a></span></p>
+<p><br><span style="color:hotpink">昨天搭好博客的,今天第一篇技术文档呀,第一次用Markdown还不会用,大家多多支持^-^  </span><br><span style="color:red">小风博客<a href="http://xfphp.cn">http://xfphp.cn</a></span>&#8195;&#8194;<span style="color:red">小风网络<a href="http://www.hotxf.com" target="_blank" rel="external">http://www.hotxf.com</a></span></p>
 </span>
       
     </div>
@@ -346,7 +346,7 @@ XP为例:我的电脑-右键属性-高级-环境变量-用户变量添加以下�
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">9</span>
+              <span class="site-state-item-count">10</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -360,7 +360,7 @@ XP为例:我的电脑-右键属性-高级-环境变量-用户变量添加以下�
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">9</span>
+              <span class="site-state-item-count">10</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>

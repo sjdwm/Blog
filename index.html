@@ -176,6 +176,111 @@
           
           
             
+              <a class="post-title-link" href="/2015/10/28/sqlbak/" itemprop="url">
+                Linux_Mysql备份脚本
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2015-10-28T21:08:01+08:00" content="2015-10-28">
+            2015-10-28
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/CentOS/" itemprop="url" rel="index"><span itemprop="name">CentOS</span></a></span>
+
+              
+              
+                ， 
+              
+
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/CentOS/LNMP/" itemprop="url" rel="index"><span itemprop="name">LNMP</span></a></span>
+
+              
+              
+                ， 
+              
+
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/CentOS/LNMP/Mysql/" itemprop="url" rel="index"><span itemprop="name">Mysql</span></a></span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2015/10/28/sqlbak/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/28/sqlbak/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+         &nbsp; | &nbsp;<span id="busuanzi_container_page_pv"> 阅读量 <span id="busuanzi_value_page_pv"></span>次</span>
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+            Mysql在linux服务器上的自动备份脚本,小型web服务器备份脚本1.在根目录创建一个放备份的目录,本例目录名为webbak[root@XiaoFeng  /]#mkdir webbak2.在webbak目录里面再建两个目录一个放*.sql文件,一个放压缩后的包,目录名mysql和sqltar[root@XiaoFeng webbak]#mkdir mysql sqltar3.写脚本放在webbak目录里[root@XiaoFeng webbak]#vim sqlbak.sh写入下面内容,自己修改你的数据库名/用户名/密码1234567891011121314151617#!/bin/sh
+            ...
+          </span>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/10/28/sqlbak/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
               <a class="post-title-link" href="/2015/10/25/mysql/" itemprop="url">
                 Mysql5.6.26编译安装
               </a>
@@ -561,8 +666,8 @@
         
           <span itemprop="articleBody">
             
-            CentOS7+Nginx1.95+mariadb10.0.21+php5.6.141.查看系统版本root@XiaoFeng html]#cat /etc/centos-release
-CentOS Linux release 7.1.15032.安装一些必要的组件[root@XiaoFeng  /]# yum -y install libjpeg-devel libpng-devel libtiff-devel fontconfig-devel freetype-devel libXpm-devel gettext-devel openssl-devel libtool-ltdl-deve
+            CentOS7+Nginx1.95+mariadb10.0.21+php5.6.141.查看系统版本root@XiaoFeng html]#cat /etc/centos-releaseCentOS Linux release 7.1.1503本文直接禁用掉了防火墙firewalld和selinux:systemctl mask firewalld 禁用防火墙systemctl stop firewalld 停止防火墙vim /etc/selinux/configSELINUX=enforcing 改成 SELINUX=disabled
+2.安装一些必要的组件[root@XiaoFeng  /
             ...
           </span>
           <div class="post-more-link text-center">
@@ -1073,7 +1178,7 @@ C:\wamp\bin\mysql\mysql5.6.12\bin;
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">9</span>
+              <span class="site-state-item-count">10</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1087,7 +1192,7 @@ C:\wamp\bin\mysql\mysql5.6.12\bin;
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">9</span>
+              <span class="site-state-item-count">10</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>
