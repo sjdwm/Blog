@@ -1,0 +1,856 @@
+<!doctype html>
+<html class="theme-next use-motion theme-next-mist">
+<head>
+    
+
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
+
+
+
+
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.4"/>
+
+
+    <meta name="description" content="业精于勤而荒于嬉,行成于思而毁于随" />
+
+
+
+  <meta name="keywords" content="OOP,PHP,面向对象," />
+
+
+
+  <link rel="alternate" href="http://xfphp.cn" title="XiaoFeng Blog" type="application/atom+xml" />
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.4" />
+
+
+<meta name="description" content="PHP的面向对象简说面相对象中的最重要的2个概念类：（类是一种思想上的或者未实现的东西）所有描述事物的概念就是类,所有事物的操作流程也是一个类
+对象:所有事物的操作流程的实施过程就是一个对象
+类和对象的组成成分:一种是用于对特征的描述   成员属性
+一种是对其功能的描述     成员方法
+类的书写规则1.文件名a)    函数的文件名 xxx.func.php
+b)    类的文件名 xxx.cl">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PHP OOP 面向对象简说">
+<meta property="og:url" content="http://xfphp.cn/2015/11/06/php-oop/index.html">
+<meta property="og:site_name" content="XiaoFeng Blog">
+<meta property="og:description" content="PHP的面向对象简说面相对象中的最重要的2个概念类：（类是一种思想上的或者未实现的东西）所有描述事物的概念就是类,所有事物的操作流程也是一个类
+对象:所有事物的操作流程的实施过程就是一个对象
+类和对象的组成成分:一种是用于对特征的描述   成员属性
+一种是对其功能的描述     成员方法
+类的书写规则1.文件名a)    函数的文件名 xxx.func.php
+b)    类的文件名 xxx.cl">
+<meta property="og:image" content="http://xfphp.cn/php/oop.svg">
+<meta property="og:updated_time" content="2015-11-06T02:43:33.850Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="PHP OOP 面向对象简说">
+<meta name="twitter:description" content="PHP的面向对象简说面相对象中的最重要的2个概念类：（类是一种思想上的或者未实现的东西）所有描述事物的概念就是类,所有事物的操作流程也是一个类
+对象:所有事物的操作流程的实施过程就是一个对象
+类和对象的组成成分:一种是用于对特征的描述   成员属性
+一种是对其功能的描述     成员方法
+类的书写规则1.文件名a)    函数的文件名 xxx.func.php
+b)    类的文件名 xxx.cl">
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: 'post'
+  };
+</script>
+<script>
+(function(){
+    var bp = document.createElement('script');
+    bp.src = '//push.zhanzhang.baidu.com/push.js';
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+    <title> PHP OOP 面向对象简说 // XiaoFeng Blog </title>
+</head>
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+
+
+
+
+<div class="container one-column page-post-detail">
+    <div class="headband"></div>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+        <div class="header-inner"><h1 class="site-meta">
+  <span class="logo-line-before"><i></i></span>
+  <a href="/" class="brand" rel="start">
+      <span class="logo">
+        <i class="icon-logo"></i>
+      </span>
+      <span class="site-title">XiaoFeng Blog</span>
+  </a>
+  <span class="logo-line-after"><i></i></span>
+</h1>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            <i class="menu-item-icon icon-home"></i> <br />
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            <i class="menu-item-icon icon-categories"></i> <br />
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            <i class="menu-item-icon icon-archives"></i> <br />
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            <i class="menu-item-icon icon-tags"></i> <br />
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            <i class="menu-item-icon icon-about"></i> <br />
+            关于我
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+        </div>
+    </header>
+
+    <main id="main" class="main">
+        <div class="main-inner">
+            <div id="content" class="content">
+                
+
+  <div id="posts" class="posts-expand">
+    
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              PHP OOP 面向对象简说
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2015-11-06T09:59:01+08:00" content="2015-11-06">
+            2015-11-06
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/PHP/" itemprop="url" rel="index"><span itemprop="name">PHP</span></a></span>
+
+              
+              
+                ， 
+              
+
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/PHP/OOP/" itemprop="url" rel="index"><span itemprop="name">OOP</span></a></span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2015/11/06/php-oop/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/06/php-oop/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+         &nbsp; | &nbsp;<span id="busuanzi_container_page_pv"> 阅读量 <span id="busuanzi_value_page_pv"></span>次</span>
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <span itemprop="articleBody"><h1 id="PHP的面向对象简说">PHP的面向对象简说</h1><h2 id="面相对象中的最重要的2个概念">面相对象中的最重要的2个概念</h2><h3 id="类：（类是一种思想上的或者未实现的东西）">类：（类是一种思想上的或者未实现的东西）</h3><p>所有描述事物的概念就是类,所有事物的操作流程也是一个类</p>
+<h3 id="对象:">对象:</h3><p>所有事物的操作流程的实施过程就是一个对象</p>
+<h3 id="类和对象的组成成分:">类和对象的组成成分:</h3><p>一种是用于对特征的描述   成员属性</p>
+<p>一种是对其功能的描述     成员方法</p>
+<h2 id="类的书写规则">类的书写规则</h2><h3 id="1-文件名">1.文件名</h3><p>a)    函数的文件名 xxx.func.php</p>
+<p>b)    类的文件名 xxx.class.php（单类文件）</p>
+<p>类的文件名一般与类名相同</p>
+<p>类的驼峰命名法:每个单词的首字母大写</p>
+<h3 id="2-类的书写规则">2.类的书写规则</h3><p>类必须有class关键字开始</p>
+<p>Class关键字之后跟类名，类名通常和文件名相同</p>
+<p>类名之后直接跟{}即可</p>
+<h3 id="3-成员属性的书写规则">3.成员属性的书写规则</h3><p>声明成员属性必须使用关键字 var或者public private等.</p>
+<p>声明成员属性可以赋值，可以不赋值</p>
+<p>声明成员属性是，不能赋一个函数</p>
+<p>成员属性的最大作用为成员方法提供一个桥梁的作用</p>
+<h3 id="4-成员方法的书写规则(同函数)">4.成员方法的书写规则(同函数)</h3><p>声明成员方法是需要使用function关键字</p>
+<p>声明成员方法可以传入参数，也可以不传入参数</p>
+<p>声明成员方法，方法允许存在返回值</p>
+<p>类中只能出现成员属性和成员方法，不允许出现其他代码否则会有语法错误<br>对象的生成和使用方法<br>一般情况下，类是无法直接使用的，需要将类实例化成对象之后才可以使用。</p>
+<h3 id="实例化对象的方法：">实例化对象的方法：</h3><p>变量= new 类名；<br>或者<br>变量 = new 类名();</p>
+<h3 id="使用对象的成员属性">使用对象的成员属性</h3><p>对象变量-&gt;成员属性名</p>
+<p>使用对象的成员方法<br>对象变量-&gt;成员方法名()<br>$this 关键字<br> 在当前对象中的成员方法中调用当前对象中的成员属性<br>$this-&gt;表示当前对象<br>如果代码中具有$this-&gt;那么该类必须实例化才能使用<br>使用方法<br>$this-&gt;属性名</p>
+<h2 id="魔术方法:_一种特殊的函数">魔术方法: 一种特殊的函数</h2><h3 id="1-构造方法:__construct（）或者类名相同">1.构造方法:__construct（）或者类名相同</h3><p> 触发时机：在对象实例化的时候自动触发<br>作用: 初始化成员属性<br>参数: 可以有，可以没有 取决于设定和逻辑<br>返回值；没有<br>注意:如果构造方法具有参数，且参数没有默认值，在实例化是必须在类名()内添加对应的实参值;</p>
+<h3 id="2-析构方法:__destruct()">2.析构方法:__destruct()</h3><p>触发时机：在销毁对象的时候自动触发（unset或者页面执行完毕）<br>作用: 回收对象使用过程中的资源<br>参数: 没有<br>返回值；没有</p>
+<h3 id="面向对象的三大特征：">面向对象的三大特征：</h3><h4 id="封装，继承_和多态">封装，继承 和多态</h4><p>封装特性:在一个对象产生之后，对象的部分成员属性和成员方法逻辑上是不允许在对象外部进行调用或者使用的，这就是封装的特性</p>
+<p>封装关键字 private  私有的</p>
+<h3 id="Private的特征:">Private的特征:</h3><p>1.被private修饰的成员属性不能够在类的外部访问，可以在类的内部访问<br>2.被private修饰的成员方法也不能在类的外部访问<br>3.Var 和private只能选取一个（还包括public 和protected）</p>
+<h3 id="魔术方法3:__get()">魔术方法3:__get()</h3><p>触发时机:访问私有成员属性的时候自动触发<br>作用:1.防止报错 2.为私有的成员属性访问提供后门<br>参数: 1个 访问私有的成员属性名称<br>返回值:可以有也可以没有</p>
+<h3 id="魔术方法4：__set()">魔术方法4：__set()</h3><p>触发时机: 对私有成员属性进行设置值的时候自动触发<br>作用:1.屏蔽错误 2.为私有成员属性设置值<br>参数:2个 1.私有成员属性名 2.要设置的值<br>返回值:无</p>
+<h3 id="魔术方法5：__isset()">魔术方法5：__isset()</h3><p>触发时机: 对私有的成员属性进行isset检测时自动触发<br>作用:代替外部的isset检测 返回结果<br>参数:1个 1.私有成员属性名<br>返回值:有 一般返回isset(属性)结果</p>
+<h3 id="魔术方法6：__unset()">魔术方法6：__unset()</h3><p>触发时机:对私有的成员属性进行unset操作时自动触发<br>作用: 代替外部的unset删除<br>参数：1个 1.私有的成员属性名<br>返回值：无</p>
+<h3 id="封装的三个关键字：">封装的三个关键字：</h3><p>Private :    私有化封装</p>
+<p>Protected:   受保护封装</p>
+<p>Public       公共的封装<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">关键字/位置	    类外 	子类	    类内</span><br><span class="line"><span class="function"><span class="title">Private</span><span class="params">(私有)</span></span>	     ×	         ×	     √</span><br><span class="line"><span class="function"><span class="title">Protected</span><span class="params">(保密)</span></span>	     ×	         √	     √</span><br><span class="line"><span class="function"><span class="title">Public</span><span class="params">(共有)</span></span> 	     √	         √	     √</span><br></pre></td></tr></table></figure></p>
+<p>继承特性：</p>
+<p>继承的格式：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">Class</span> 类名 <span class="keyword">extends</span> 父类名</span>&#123;</span><br><span class="line"><span class="comment">//子类独有的属性和方法</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="概念">概念</h3><p>父类:被其他类继承的类就是父类 也叫做基类</p>
+<p>子类：继承其他类的类就是子类也叫派生类</p>
+<p>父类私有的属性 和方法 子类是不能继承</p>
+<p>Php继承特点和其他语言的不同：</p>
+<p>Php 语言是单继承<br>其他语言是多继承</p>
+<h3 id="继承的特点：">继承的特点：</h3><p>1.子类继承父类具有父类的所有成员属性和成员方法(私有的除外)</p>
+<p>2.子类继承父类之后可以具有子类独有的属性和方法</p>
+<p>3.在继承时，子类中允许出现和父类同名的方法，这种情况不冲突，而是子类的方法会覆盖父类的方法，这种方法叫做重载</p>
+<p>4.魔术方法也可以被子类继承</p>
+<p>5.如果父类具有构造方法，子类也具有需要构造方法进行构造的成员属性，此时需要在子类中重载父类的构造方法，并且在构造方法中使用parent::__construct() （也可以使用类名代替parent不推荐）进行调用父类的构造方法，构造继承而来的父类的成员属性</p>
+<p>6.继承代码的时候不要瞎继承，人类不要继承猫类 不会变成猫人````</p>
+<h3 id="属性的重载">属性的重载</h3><p>Public修饰的属性如果在子类有同名的属性会被重写<br>不管写在父类还是子类的方法访问这个属性都是被重载之后的值</p>
+<p>Protected 父类中 如果是protected修饰属性 或方法 子类只能是protected或者public<br>Private  父类修饰的属性 那么太就有讲究了</p>
+<h3 id="权限关系">权限关系</h3><p>Private 1</p>
+<p>Protected 2</p>
+<p>Public 3</p>
+<p>权限可以扩大不能缩小</p>
+<h3 id="Final_关键字">Final  关键字</h3><p>Final 意思 最后的 最终的</p>
+<p>作用<br>1.修饰成员方法 禁止子类在重载父类的方法<br>2.用来修饰类  被final 修饰的类无法被继承</p>
+<h3 id="Const_关键字">Const 关键字</h3><p>作用:用于在类中声明常量，这个常量是类中的常量</p>
+<p>类中的常量不归对象所有，而是归类所有(你有类声明常量是类的不是对象的)</p>
+<ol>
+<li><p>在类中声明常量const</p>
+</li>
+<li><p>声明常量时需要给常量赋值</p>
+</li>
+<li><p>声明常量归类所有不是归任何对象所有</p>
+</li>
+<li><p>类中常量的访问方式</p>
+<h4 id="a)_类外部">a)    类外部</h4><p>类名::常量名</p>
+<h4 id="b)_类内部">b)  类内部</h4><p>类名：：常量名</p>
+</li>
+</ol>
+<p>Self::常量名</p>
+<p>Self表示当前类  $this-&gt;表示当前对象</p>
+<h3 id="Static_关键字">Static 关键字</h3><p>在类中使用static 声明的成员属性都是静态成员属性 声明的成员方法都是静态的成员方法<br>静态的成员特征是：不归对象所有，而是归类所有</p>
+<p>1.static关键字及可以修饰成员属性也可以修饰成员方法</p>
+<p>2.Static 声明的成员都是归类所有，而不是归对象所有在没有对象的情况下，可以通过类来访问</p>
+<p>3.能声明静态的成员就需要声明静态的成员 效率高~~~</p>
+<p>4.具有动态的成员方法不可以声明为静态的成员方法（没有$this）</p>
+<p>5.如果方法中没有$this存在，那么这个方法实际上已经是静态的方法(版本&gt;5.3请你写上static关键字)</p>
+<h5 id="静态的成员访问">静态的成员访问</h5><p>类内部</p>
+<p>类名::$静态的成员属性名</p>
+<p>Self::$静态的成员属性名</p>
+<p>类名::静态的成员方法名();</p>
+<p>Self::静态的成员方法名();</p>
+<p>类外部</p>
+<p>类名::$静态的成员属性名;</p>
+<p>类名::静态成员方法名();</p>
+<p>对象-&gt;静态的成员方法名();（一般不用）</p>
+<h5 id="对象的串行化">对象的串行化</h5><p>将对象编程一个字符串的过程就是兑现高度串行化</p>
+<p>作用:1.方便长久的保存对象，2方便在网络上传输</p>
+<p>串行化操作:变量 = serialize(对象变量)</p>
+<h5 id="反串行化操作：">反串行化操作：</h5><p>对象变量 = unserialize(变量)</p>
+<p>魔术方法7：__sleep()</p>
+<p>触发时机:在对象进行串行化操作的时候自动触发</p>
+<p>功能;    执行需要串行化的成员属性</p>
+<p>参数: 无</p>
+<p>返回值:需要返回一个数组类型，每个元素都是要串行化的成员属性名</p>
+<h3 id="魔术方法_8:__wakeup()">魔术方法 8:__wakeup()</h3><p>触发时机:在对象进行反串行化操作的时候自动触发<br>功能;反串行化的时候自动修改部分成员属性值<br>参数: 无<br>返回值:无</p>
+<h3 id="魔术方法_9:__toString()">魔术方法 9:__toString()</h3><p>触发时机:在一个对象进行echo 操作的时候自动触发<br>功能;简化操作或者为对象输出值<br>参数: 无<br>返回值:必须有且必须为字符串类型</p>
+<h3 id="魔术方法10:__clone()">魔术方法10:__clone()</h3><p>触发时机:对对象进行克隆操作的时候自动触发<br>功能;修改克隆之后的对象的部分属性值<br>参数: 无<br>返回值:无</p>
+<p>注意：对象的赋值默认就是引用赋值，不能通过赋值操作获取一个新的对象，获取新的对象的操作应该使用克隆操作<br>格式:变量=clone 对象变量</p>
+<h3 id="魔术方法11__call()">魔术方法11__call()</h3><p>触发时机:调用了类中不存在的方法时自动触发<br>功能;1.屏蔽错误2.为不存在的方法定义一个功能<br>参数: 2个 1.不存在的方法名 2.所有实参组成的数组<br>返回值:可有可无(根据实际功能决定)</p>
+<h3 id="魔术方法_12__autoload();">魔术方法 12__autoload();</h3><p>触发时机:当页面需要加载一个类而该类不存在时自动触发<br>功能;实现类的自动加载<br>参数: 1个 1.不存在类的类名<br>返回值:没有</p>
+<p>##抽象类<br>具有抽象方法的类就是抽象类</p>
+<p>抽象方法：</p>
+<p>没有方法体的方法就是抽象方法</p>
+<p>作用：领导用的~~协同工作 制定标准</p>
+<h5 id="特征:">特征:</h5><p>1.抽象方法就是没有方法体的方法，方法体相当于函数体，抽象方法前面必须使用abstract关键字 且方法后不能写{} 但是要写;</p>
+<p>2.如果类中有抽象方法，那么这个类前面必须使用abstract关键字修饰</p>
+<p>3.抽象类中可以具有非抽象方法</p>
+<p>4.抽象方法可以具有参数，要实现抽象方法必须传入同样的参数</p>
+<p>5.抽象类不能直接使用 必须由其他类继承 并且全部实现所有的抽象方法才可以使用，抽象类的主要是给其他类进行继承操作的</p>
+<p>6.抽象类可以继承抽象类</p>
+<p>7.在抽象类中抽象方法不可以使用private关键字</p>
+<h4 id="接口:">接口:</h4><p>如果一个类中没有任何的非抽象方法，且不存在除常量以外的任何成员属性，那么这个类就是一个接口</p>
+<p>特征：</p>
+<p>1.声明一个接口不使用class关键字 而是用interface 关键字</p>
+<p>2.接口中的抽象方法不需要写abstract关键字 虽然他是抽象类</p>
+<p>3.接口可以使用public 关键字 不可以使用protected或者private关键字</p>
+<p>4.接口不允许有任何的成员属性，除了常量。</p>
+<p>5.接口的继承不使用extends 而使用implements 关键字</p>
+<p>6.extends 只能继承一个普通类或者一个抽象类，而implements可以同时继承多个接口，从而模拟多继承</p>
+<p>面向对象三大特性  封装 继承 多态</p>
+<p><span style="color:hotpink">PHP的面向对象简说,转载请注明出处^-^  </span><br><span style="color:red">小风博客<a href="http://xfphp.cn">http://xfphp.cn</a></span>&#8195;&#8194;<span style="color:red">小风网络<a href="http://www.hotxf.com" target="_blank" rel="external">http://www.hotxf.com</a></span></p>
+<h4 id="另:附上一张思维导图">另:附上一张思维导图</h4><p><img src="/php/oop.svg" alt="PHP-OOP思维导图"></p>
+</span>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/OOP/" rel="tag">#OOP</a>
+          
+            <a href="/tags/PHP/" rel="tag">#PHP</a>
+          
+            <a href="/tags/面向对象/" rel="tag">#面向对象</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/10/28/sqlbak/" rel="next">Linux_Mysql备份脚本</a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2015/11/06/php-oop/"
+     data-title="PHP OOP 面向对象简说"
+     data-content=""
+     data-url="http://xfphp.cn/2015/11/06/php-oop/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+
+            </div>
+
+            
+
+            
+              <div class="comments" id="comments">
+                
+                  <div class="ds-thread" data-thread-key="2015/11/06/php-oop/"
+                       data-title="PHP OOP 面向对象简说" data-url="http://xfphp.cn/2015/11/06/php-oop/">
+                  </div>
+                
+              </div>
+            
+        </div>
+
+        
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="/images/default_avatar.jpg" alt="XiaoFeng" itemprop="image"/>
+          <p class="site-author-name" itemprop="name">XiaoFeng</p>
+        </div>
+        <p class="site-description motion-element" itemprop="description">业精于勤而荒于嬉,行成于思而毁于随</p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">11</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            <a href="/categories">
+              <span class="site-state-item-count">11</span>
+              <span class="site-state-item-name">分类</span>
+              </a>
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">12</span>
+              <span class="site-state-item-name">标签</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="http://xfphp.cn" rel="alternate">
+              <i class="menu-item-icon icon-feed"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="http://www.hotxf.com" target="_blank">Blog</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/sjdwm" target="_blank">Weibo</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://github.com/sjdwm" target="_blank">GitHub</a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="http://creativecommons.org/licenses/by-nc-sa/4.0" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            <p class="site-author-name">links</p>
+            
+              <span class="links-of-author-item">
+              <a href="http://www.hotxf.com" target="_blank">小风网络</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://hotxf.com/dh" target="_blank">小风导航</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://blog.hotxf.com" target="_blank">我的51CTO</a>
+              </span>
+            
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#PHP的面向对象简说"><span class="nav-number">1.</span> <span class="nav-text">PHP的面向对象简说</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#面相对象中的最重要的2个概念"><span class="nav-number">1.1.</span> <span class="nav-text">面相对象中的最重要的2个概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#类：（类是一种思想上的或者未实现的东西）"><span class="nav-number">1.1.1.</span> <span class="nav-text">类：（类是一种思想上的或者未实现的东西）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对象:"><span class="nav-number">1.1.2.</span> <span class="nav-text">对象:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#类和对象的组成成分:"><span class="nav-number">1.1.3.</span> <span class="nav-text">类和对象的组成成分:</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类的书写规则"><span class="nav-number">1.2.</span> <span class="nav-text">类的书写规则</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-文件名"><span class="nav-number">1.2.1.</span> <span class="nav-text">1.文件名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-类的书写规则"><span class="nav-number">1.2.2.</span> <span class="nav-text">2.类的书写规则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-成员属性的书写规则"><span class="nav-number">1.2.3.</span> <span class="nav-text">3.成员属性的书写规则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-成员方法的书写规则(同函数)"><span class="nav-number">1.2.4.</span> <span class="nav-text">4.成员方法的书写规则(同函数)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实例化对象的方法："><span class="nav-number">1.2.5.</span> <span class="nav-text">实例化对象的方法：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用对象的成员属性"><span class="nav-number">1.2.6.</span> <span class="nav-text">使用对象的成员属性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#魔术方法:_一种特殊的函数"><span class="nav-number">1.3.</span> <span class="nav-text">魔术方法: 一种特殊的函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-构造方法:__construct（）或者类名相同"><span class="nav-number">1.3.1.</span> <span class="nav-text">1.构造方法:__construct（）或者类名相同</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-析构方法:__destruct()"><span class="nav-number">1.3.2.</span> <span class="nav-text">2.析构方法:__destruct()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#面向对象的三大特征："><span class="nav-number">1.3.3.</span> <span class="nav-text">面向对象的三大特征：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#封装，继承_和多态"><span class="nav-number">1.3.3.1.</span> <span class="nav-text">封装，继承 和多态</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Private的特征:"><span class="nav-number">1.3.4.</span> <span class="nav-text">Private的特征:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#魔术方法3:__get()"><span class="nav-number">1.3.5.</span> <span class="nav-text">魔术方法3:__get()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#魔术方法4：__set()"><span class="nav-number">1.3.6.</span> <span class="nav-text">魔术方法4：__set()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#魔术方法5：__isset()"><span class="nav-number">1.3.7.</span> <span class="nav-text">魔术方法5：__isset()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#魔术方法6：__unset()"><span class="nav-number">1.3.8.</span> <span class="nav-text">魔术方法6：__unset()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#封装的三个关键字："><span class="nav-number">1.3.9.</span> <span class="nav-text">封装的三个关键字：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#概念"><span class="nav-number">1.3.10.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#继承的特点："><span class="nav-number">1.3.11.</span> <span class="nav-text">继承的特点：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#属性的重载"><span class="nav-number">1.3.12.</span> <span class="nav-text">属性的重载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#权限关系"><span class="nav-number">1.3.13.</span> <span class="nav-text">权限关系</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Final_关键字"><span class="nav-number">1.3.14.</span> <span class="nav-text">Final  关键字</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Const_关键字"><span class="nav-number">1.3.15.</span> <span class="nav-text">Const 关键字</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#a)_类外部"><span class="nav-number">1.3.15.1.</span> <span class="nav-text">a)    类外部</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#b)_类内部"><span class="nav-number">1.3.15.2.</span> <span class="nav-text">b)  类内部</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Static_关键字"><span class="nav-number">1.3.16.</span> <span class="nav-text">Static 关键字</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#静态的成员访问"><span class="nav-number">1.3.16.0.1.</span> <span class="nav-text">静态的成员访问</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#对象的串行化"><span class="nav-number">1.3.16.0.2.</span> <span class="nav-text">对象的串行化</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#反串行化操作："><span class="nav-number">1.3.16.0.3.</span> <span class="nav-text">反串行化操作：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#魔术方法_8:__wakeup()"><span class="nav-number">1.3.17.</span> <span class="nav-text">魔术方法 8:__wakeup()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#魔术方法_9:__toString()"><span class="nav-number">1.3.18.</span> <span class="nav-text">魔术方法 9:__toString()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#魔术方法10:__clone()"><span class="nav-number">1.3.19.</span> <span class="nav-text">魔术方法10:__clone()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#魔术方法11__call()"><span class="nav-number">1.3.20.</span> <span class="nav-text">魔术方法11__call()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#魔术方法_12__autoload();"><span class="nav-number">1.3.21.</span> <span class="nav-text">魔术方法 12__autoload();</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#特征:"><span class="nav-number">1.3.21.0.1.</span> <span class="nav-text">特征:</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#接口:"><span class="nav-number">1.3.21.1.</span> <span class="nav-text">接口:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#另:附上一张思维导图"><span class="nav-number">1.3.21.2.</span> <span class="nav-text">另:附上一张思维导图</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+    </main>
+
+    <footer id="footer" class="footer">
+        <div class="footer-inner">
+            <div class="copyright" >
+  
+  &copy; &nbsp; 
+  <span itemprop="copyrightYear">2015</span>
+  <span class="with-love">
+    <i class="icon-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">XiaoFeng</span>
+  <a id="translateLink" href="javascript:translatePage();" title="简繁切换">简体中文</a>
+<script type="text/javascript" src="http://xfphp.cn/js/tw_cn.js"></script>
+<script type="text/javascript">
+var defaultEncoding = 2; //网站编写字体是否繁体，1-繁体，2-简体
+var translateDelay = 0; //延迟时间,若不在前, 要设定延迟翻译时间, 如100表示100ms,默认为0
+var cookieDomain = "http://xfphp.cn/"; //Cookie地址, 一定要设定, 通常为你的网址
+var msgToTraditionalChinese = "繁體中文"; //此处可以更改为你想要显示的文字
+var msgToSimplifiedChinese = "简体中文"; //同上，但两处均不建议更改
+var translateButtonId = "translateLink"; //默认互换id
+translateInitilization();
+</script>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+<span id="busuanzi_container_site_pv">
+    本站总访问量<span id="busuanzi_value_site_pv"></span>次
+</span>
+
+
+        </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+</div>
+
+<script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+  
+    
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"sjd"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+    
+
+    
+  
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.4"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.4"></script>
+  
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/js/motion_global.js?v=0.4.4" id="motion.global"></script>
+
+
+
+  <script type="text/javascript" src="/js/search-toggle.js"></script>
+
+
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.4" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 0.4 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    var $tocContent = $('.post-toc-content');
+    if (isDesktop() && CONFIG.sidebar === 'post') {
+      if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+        displaySidebar();
+      }
+    }
+  });
+</script>
+
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        if (CONFIG.sidebar === 'always') {
+            displaySidebar();
+        }
+    });
+</script>
+
+
+
+
+
+
+
+
+<!-- lazyload -->
+<script type="text/javascript" src="/js/lazyload.js"></script>
+<script type="text/javascript">
+    jQuery(function () {
+        jQuery("#posts img").lazyload({
+            placeholder: "/images/loading.gif",
+            effect: "fadeIn"
+        });
+    });
+</script>
+</body>
+</html>
