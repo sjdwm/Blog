@@ -176,6 +176,105 @@
           
           
             
+              <a class="post-title-link" href="/2015/11/14/mysql-link/" itemprop="url">
+                PHP连接Mysql的几种方法
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2015-11-14T09:43:29+08:00" content="2015-11-14">
+            2015-11-14
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/Mysql/" itemprop="url" rel="index"><span itemprop="name">Mysql</span></a></span>
+
+              
+              
+                ， 
+              
+
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/Mysql/PHP/" itemprop="url" rel="index"><span itemprop="name">PHP</span></a></span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2015/11/14/mysql-link/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/14/mysql-link/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+         &nbsp; | &nbsp;<span id="busuanzi_container_page_pv"> 阅读量 <span id="busuanzi_value_page_pv"></span>次</span>
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+            PHP连接Mysql之天龙八部(老式的连接数据库,快要被淘汰了,以后都是PDO方式)1. 连接数据库$link = @mysql_connect(&#39;localhost&#39;,&#39;root&#39;,&#39;123456&#39;);
+2. 判断错误123456//mysql_errno() 返回错误号//mysql_error() 返回错误信息if(mysql_errno())&#123;    echo mysql_errno().':'.mysql_error();    exit;&#125;
+3. 选择数据库mysql_select_db(&#39;s33&#39;
+            ...
+          </span>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/11/14/mysql-link/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
               <a class="post-title-link" href="/2015/11/06/php访问量统计/" itemprop="url">
                 php访问量统计
               </a>
@@ -1070,107 +1169,6 @@ Class关键字之后跟类名，类名通常和文件名相同
 
 
     
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2015/09/20/mysqlbak/" itemprop="url">
-                Mysql在windows下的自动备份
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2015-09-20T10:15:57+08:00" content="2015-09-20">
-            2015-09-20
-          </time>
-        </span>
-
-        
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/Mysql/" itemprop="url" rel="index"><span itemprop="name">Mysql</span></a></span>
-
-              
-              
-                ， 
-              
-
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/Mysql/Mysql自动备份/" itemprop="url" rel="index"><span itemprop="name">Mysql自动备份</span></a></span>
-
-              
-              
-
-            
-          </span>
-        
-
-        
-          
-            <span class="post-comments-count">
-              &nbsp; | &nbsp;
-              <a href="/2015/09/20/mysqlbak/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/09/20/mysqlbak/" itemprop="commentsCount"></span>
-              </a>
-            </span>
-          
-        
-         &nbsp; | &nbsp;<span id="busuanzi_container_page_pv"> 阅读量 <span id="busuanzi_value_page_pv"></span>次</span>
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody">
-            
-            来说说Mysql在windows下的备份1.Mysql自带的备份语句:mysqldump用来备份的,在cmd下运行,cmd需要管理员权限执行2.前提mysql的变量环境要有的,就是在cmd下能用mysql -uroot -p 能登录,如果不能请以下自行添加
-XP为例:我的电脑-右键属性-高级-环境变量-用户变量添加以下变量名为:PATH
-变量值为mysql路径:C:\wamp\bin\mysql\mysql5.6.12\bin;在系统环境中找到Path变量,在里面添加:
-C:\wamp\bin\mysql\mysql5.6.12\bin;
-3.这样就可以在CMD中执行mysqldump来备份了
-            ...
-          </span>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/09/20/mysqlbak/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1210,21 +1208,21 @@ C:\wamp\bin\mysql\mysql5.6.12\bin;
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">12</span>
+              <span class="site-state-item-count">13</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
 
           <div class="site-state-item site-state-categories">
             <a href="/categories">
-              <span class="site-state-item-count">11</span>
+              <span class="site-state-item-count">12</span>
               <span class="site-state-item-name">分类</span>
               </a>
           </div>
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">13</span>
+              <span class="site-state-item-count">14</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>
