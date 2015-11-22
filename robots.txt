@@ -1,0 +1,14 @@
+# robots.txt
+User-agent: *
+Allow: /
+Allow: /archives/
+
+Disallow: /vendors/
+Disallow: /js/
+Disallow: /css/
+Disallow: /fonts/
+Disallow: /vendors/
+Disallow: /fancybox/
+
+Sitemap: http://xfphp.cn/sitemap.xml
+Sitemap: http://xfphp.cn/baidusitemap.xml
