@@ -2,6 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://xfphp.cn/js/embed.js</loc>
+    <lastmod>2015-11-30T11:41:31.565Z</lastmod>
+  </url>
+  
+  <url>
     <loc>http://xfphp.cn/about/index.html</loc>
     <lastmod>2015-11-22T15:24:06.330Z</lastmod>
   </url>
