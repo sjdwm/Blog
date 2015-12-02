@@ -1,0 +1,782 @@
+<!doctype html>
+<html class="theme-next use-motion theme-next-mist">
+<head>
+    
+
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
+
+
+
+
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.4"/>
+<link rel="stylesheet" href="/css/header.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+
+    <meta name="description" content="业精于勤而荒于嬉,行成于思而毁于随" />
+
+
+
+  <meta name="keywords" content="Memcached," />
+
+
+
+  <link rel="alternate" href="http://xfphp.cn" title="XiaoFeng Blog" type="application/atom+xml" />
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.4" />
+
+
+<meta name="description" content="Memcache技术笔记一、基本概念1. 缘起: 
+在数据驱动的web开发中，经常要重复从数据库中取出相同的数据，这种重复极大的增加了数据库负载。缓存是解决这个问题的好办法。但是Web中的虽然已经可以实现对页面局部进行缓存，但还是不够灵活。此时Memcached或许是你想要的。
+2. Memcached是什么?
+Memcached是由Danga Interactive开发的，高性能的，分布式的内存">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Memcached技术笔记">
+<meta property="og:url" content="http://xfphp.cn/2015/12/02/Memcached/index.html">
+<meta property="og:site_name" content="XiaoFeng Blog">
+<meta property="og:description" content="Memcache技术笔记一、基本概念1. 缘起: 
+在数据驱动的web开发中，经常要重复从数据库中取出相同的数据，这种重复极大的增加了数据库负载。缓存是解决这个问题的好办法。但是Web中的虽然已经可以实现对页面局部进行缓存，但还是不够灵活。此时Memcached或许是你想要的。
+2. Memcached是什么?
+Memcached是由Danga Interactive开发的，高性能的，分布式的内存">
+<meta property="og:updated_time" content="2015-12-02T15:20:56.836Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Memcached技术笔记">
+<meta name="twitter:description" content="Memcache技术笔记一、基本概念1. 缘起: 
+在数据驱动的web开发中，经常要重复从数据库中取出相同的数据，这种重复极大的增加了数据库负载。缓存是解决这个问题的好办法。但是Web中的虽然已经可以实现对页面局部进行缓存，但还是不够灵活。此时Memcached或许是你想要的。
+2. Memcached是什么?
+Memcached是由Danga Interactive开发的，高性能的，分布式的内存">
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: 'post'
+  };
+</script>
+<script>
+(function(){
+    var bp = document.createElement('script');
+    bp.src = '//push.zhanzhang.baidu.com/push.js';
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?86d06691f9b1e1e0d9e148037bb0bfc3";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <title> Memcached技术笔记 // XiaoFeng Blog </title>
+</head>
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+
+
+
+
+<div class="container one-column page-post-detail">
+    <div class="headband"></div>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+        <div class="header-inner"><h1 class="site-meta">
+  <span class="logo-line-before"><i></i></span>
+  <a href="/" class="brand" rel="start">
+      <span class="logo">
+        <i class="icon-logo"></i>
+      </span>
+      <span class="site-title">XiaoFeng Blog</span>
+  </a>
+  <span class="logo-line-after"><i></i></span>
+</h1>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            <i class="menu-item-icon icon-home"></i> <br />
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            <i class="menu-item-icon icon-archives"></i> <br />
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            <i class="menu-item-icon icon-categories"></i> <br />
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            <i class="menu-item-icon icon-tags"></i> <br />
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            <i class="menu-item-icon icon-about"></i> <br />
+            留言
+          </a>
+        </li>
+      
+      <li class="menu-item menu-item-myitems">
+      <a href="/demo" >
+        <i class="myitems"></i> <br>项目</a>
+      <ul class="submenu">
+        <li><a href="http://www.hotxf.com/" target="_blank">小风网络</a></li>
+        <li><a href="http://hotxf.com/dh/" target="_blank">小风导航</a></li>
+        <!--
+        <li><a href="#" target="_blank">呵呵</a></li>
+        <li><a href="#" target="_blank">呵呵</a></li>
+        <li><a href="#" target="_blank">呵呵</a></li>
+        <li><a href="#" target="_blank">呵呵</a></li>
+        <li><a href="#" target="_blank">呵呵</a></li>
+        <li><a href="#" target="_blank">呵呵</a></li>
+        -->
+      </ul>
+    </ul>
+  
+
+  
+</nav>
+
+
+        </div>
+    </header>
+
+    <main id="main" class="main">
+        <div class="main-inner">
+            <div id="content" class="content">
+                
+
+  <div id="posts" class="posts-expand">
+    
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              Memcached技术笔记
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2015-12-02T22:44:16+08:00" content="2015-12-02">
+            2015-12-02
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/Memcached/" itemprop="url" rel="index"><span itemprop="name">Memcached</span></a></span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2015/12/02/Memcached/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/12/02/Memcached/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+         &nbsp; | &nbsp;<span id="busuanzi_container_page_pv"> 阅读量 <span id="busuanzi_value_page_pv"></span>次</span>
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <span itemprop="articleBody"><h1 id="Memcache技术笔记">Memcache技术笔记</h1><h3 id="一、基本概念">一、基本概念</h3><pre><code><span class="number">1.</span> 缘起: 
+</code></pre><p>在数据驱动的web开发中，经常要重复从数据库中取出相同的数据，这种重复极大的增加了数据库负载。缓存是解决这个问题的好办法。但是Web中的虽然已经可以实现对页面局部进行缓存，但还是不够灵活。此时Memcached或许是你想要的。</p>
+<pre><code><span class="number">2.</span> Memcached是什么?
+</code></pre><p>Memcached是由Danga Interactive开发的，高性能的，分布式的内存对象缓存系统，用于在动态应用中减少数据库负载，提升访问速度。</p>
+<pre><code><span class="number">3.</span> Memcached能缓存什么？
+</code></pre><p>通过在内存里维护一个统一的巨大的hash表，Memcached能够用来存储各种格式的数据，包括图像、视频、文件以及数据库检索的结果等。</p>
+<pre><code><span class="number">4.</span> Memcached快么？
+</code></pre><p>非常快。Memcached使用了libevent（如果可以的话，在linux下使用epoll）来均衡任何数量的打开链接，使用非阻塞的网络I/O，对内部对象实现引用计数(因此，针对多样的客户端，对象可以处在多样的状态)，使用自己的页块分配器和哈希表，因此虚拟内存不会产生碎片并且虚拟内存分配的时间复杂度可以保证为O(1)。<br>Danga Interactive为提升Danga Interactive的速度研发了Memcached。</p>
+<pre><code><span class="number">5.</span> Memcached的特点
+</code></pre><p>Memcached的缓存是一种分布式的，可以让不同主机上的多个用户同时访问，因此解决了共享内存只能单机应用的局限，更不会出现使用数据库做类似事情的时候，磁盘开销和阻塞的发生。</p>
+<p>缓存数据:</p>
+<p>1.在内存中缓存数据        </p>
+<p>2.数据形态以key-&gt;value结构    </p>
+<p>3.安全度非常差的</p>
+<p>软件:</p>
+<p>1.memcache模块<br>让php支持memcache的函数，可以去连接memcache服务，进行增、删、改、查<br>2.memcached  提供memcache服务,11211</p>
+<p>学习memcache:<br>1.memcache服务器操作<br>2.用php去操作memcache</p>
+<h2 id="一．环境介绍">一．环境介绍</h2><p>1）CentOS 7</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@XiaoFeng html]<span class="preprocessor"># cat /etc/centos-release</span></span><br><span class="line">CentOS Linux release <span class="number">7.1</span><span class="number">.1503</span> (Core)</span><br></pre></td></tr></table></figure>
+<p>2) memcached-1.4.25</p>
+<h2 id="二．部署安装">二．部署安装</h2><p>计划具体部署步骤：<br>步骤1：安装<br>步骤2：配置<br>步骤3：运行<br>步骤4：检查<br>现在开始：<br>1）安装</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[root@XiaoFeng ]yum install -y wget gcc</span><br><span class="line">[root@XiaoFeng lnmp]<span class="preprocessor">#wget http:<span class="comment">//cloud.github.com/downloads/libevent/libevent/libevent-2.0.21-stable.tar.gz</span></span></span><br><span class="line">[root@XiaoFeng lnmp]<span class="preprocessor"># tar zxvf libevent-<span class="number">2.0</span><span class="number">.21</span>-stable.tar.gz </span></span><br><span class="line">[root@XiaoFeng lnmp]<span class="preprocessor"># cd libevent-<span class="number">2.0</span><span class="number">.21</span>-stable</span></span><br><span class="line">[root@XiaoFeng libevent-<span class="number">2.0</span><span class="number">.21</span>-stable]<span class="preprocessor">#./configure --prefix=/usr/local/libevent</span></span><br><span class="line">[root@XiaoFeng libevent-<span class="number">2.0</span><span class="number">.21</span>-stable]<span class="preprocessor"># make &amp;&amp; make install</span></span><br><span class="line">[root@XiaoFeng lnmp]<span class="preprocessor">#wget http:<span class="comment">//www.memcached.org/files/memcached-1.4.25.tar.gz</span></span></span><br><span class="line">[root@XiaoFeng lnmp]<span class="preprocessor">#tar xf memcached-<span class="number">1.4</span><span class="number">.25</span>.tar.gz</span></span><br><span class="line">[root@XiaoFeng lnmp]<span class="preprocessor">#memcached-<span class="number">1.4</span><span class="number">.25</span></span></span><br><span class="line">[root@XiaoFeng memcached-<span class="number">1.4</span><span class="number">.25</span>]<span class="preprocessor">#./configure --prefix=/usr/local/memcached --with-libevent=/usr/local/libevent </span></span><br><span class="line">[root@XiaoFeng memcached-<span class="number">1.4</span><span class="number">.25</span>]<span class="preprocessor"># make &amp;&amp; make install</span></span><br><span class="line">[root@XiaoFeng memcached-<span class="number">1.4</span><span class="number">.25</span>]<span class="preprocessor">#ln -s /usr/local/memcached/bin/memcached /usr/local/bin/</span></span><br></pre></td></tr></table></figure>
+<p>2）配置</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@XiaoFeng memcached-<span class="number">1.4</span><span class="number">.25</span>]<span class="preprocessor"># touch /etc/init.d/memcached</span></span><br><span class="line">[root@XiaoFeng memcached-<span class="number">1.4</span><span class="number">.25</span>]<span class="preprocessor"># chmod <span class="number">755</span> /etc/init.d/memcached</span></span><br><span class="line">[root@XiaoFeng memcached-<span class="number">1.4</span><span class="number">.25</span>]<span class="preprocessor"># vi /etc/init.d/memcached</span></span><br></pre></td></tr></table></figure>
+<p>复制下面的<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="shebang">#!/bin/sh</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># memcached:    MemCached Daemon</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># chkconfig:    - 90 25</span></span><br><span class="line"><span class="comment"># description:  MemCached Daemon</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># Source function library.</span></span><br><span class="line">. /etc/rc.d/init.d/<span class="built_in">functions</span></span><br><span class="line">. /etc/sysconfig/network</span><br><span class="line"><span class="function"><span class="title">start</span></span>()</span><br><span class="line">&#123;</span><br><span class="line">        <span class="built_in">echo</span> -n $<span class="string">"Starting memcached: "</span></span><br><span class="line">        daemon /usr/<span class="built_in">local</span>/bin/memcached -u daemon <span class="operator">-d</span> -m <span class="number">2048</span> <span class="operator">-l</span> <span class="number">0.0</span>.<span class="number">0.0</span> -c <span class="number">4096</span> -p <span class="number">11211</span></span><br><span class="line">        <span class="built_in">echo</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="title">stop</span></span>()</span><br><span class="line">&#123;</span><br><span class="line">        <span class="built_in">echo</span> -n $<span class="string">"Shutting down memcached: "</span></span><br><span class="line">        killproc memcached</span><br><span class="line">        <span class="built_in">echo</span></span><br><span class="line">&#125;</span><br><span class="line">[ <span class="operator">-f</span> /usr/<span class="built_in">local</span>/bin/memcached ] || <span class="built_in">exit</span> <span class="number">0</span></span><br><span class="line"><span class="comment"># See how we were called.</span></span><br><span class="line"><span class="keyword">case</span> <span class="string">"<span class="variable">$1</span>"</span> <span class="keyword">in</span></span><br><span class="line">  start)</span><br><span class="line">        start</span><br><span class="line">        ;;</span><br><span class="line">  stop)</span><br><span class="line">        stop</span><br><span class="line">        ;;</span><br><span class="line">  restart|reload)</span><br><span class="line">        stop</span><br><span class="line">        start</span><br><span class="line">        ;;</span><br><span class="line">  condrestart)</span><br><span class="line">        stop</span><br><span class="line">        start</span><br><span class="line">        ;;</span><br><span class="line">  *)</span><br><span class="line">        <span class="built_in">echo</span> $<span class="string">"Usage: <span class="variable">$0</span> &#123;start|stop|restart|reload|condrestart&#125;"</span></span><br><span class="line">        <span class="built_in">exit</span> <span class="number">1</span></span><br><span class="line"><span class="keyword">esac</span></span><br><span class="line"><span class="built_in">exit</span> <span class="number">0</span></span><br></pre></td></tr></table></figure></p>
+<p>3）运行<br><code>[root@XiaoFeng memcached-1.4.25]# /etc/init.d/memcached start</code><br><code>[root@XiaoFeng memcached-1.4.25]# chkconfig memcached on</code><br>4）检查<br>主要是检查进程以及端口</p>
+<p><code>[root@XiaoFeng memcached-1.4.25]# ps aux|grep memcached</code><br><code>[root@XiaoFeng memcached-1.4.25]# netstat -ntlp|grep memcached</code><br><code>[root@XiaoFeng memcached-1.4.25]# echo &quot;stats settings&quot; | nc 127.0.0.1 11211</code></p>
+<p>5)连接商品测试</p>
+<p><code>C:\Users\枫叶&gt;telnet 192.168.1.125 11211</code></p>
+<p>stats        memcache命令：查看当前状态</p>
+<p>参考:<br>Stats这里显示了很多状态信息，下边详细解释每个状态项：<br>STAT pid 1552                服务进程的进程ID<br>STAT uptime 3792            服务从启动到当前所经过的时间，单位是秒。<br>STAT time 1262517674        服务器所在主机当前系统的时间，单位是秒。<br>STAT version 1.2.6            组件的版本。这里是我当前使用的1.2.6。<br>STAT pointer_size 32            服务器所在主机操作系统的指针大小，一般为32或64.<br>STAT curr_items 1            表示存放当前的所有缓存对象的数量。不包括已经从缓存中删除的对象。<br>STAT total_items 2            表示从启动到当前，系统存储过的所有对象数量，包括已经删除的对象。<br>STAT bytes 593                表示系统存储缓存对象所使用的存储空间，单位为字节。<br>STAT curr_connections 2        表示当前系统打开的连接数。<br>STAT total_connections 28    表示从memcached服务启动到当前时间，系统打开过的连接的总数。<br>STAT connection_structures 9表示从memcached服务启动到当前时间，被服务器分配的连接结构的数量，这个解释是协议文档给的，具体什么意思，我目前还没搞明白。<br>STAT cmd_get 3                累积获取数据的数量，这里是3，因为我测试过3次，第一次因为没有序列化对象，所以获取数据失败，是null，后边有2次是我用不同对象测试了2次。<br>STAT cmd_set 2                累积保存数据的树立数量，这里是2.虽然我存储了3次，但是第一次因为没有序列化，所以没有保存到缓存，也就没有记录。<br>STAT get_hits 2                表示获取数据成功的次数。<br>STAT get_misses 1            表示获取数据失败的次数。<br>STAT evictions 0                为了给新的数据项目释放空间，从缓存移除的缓存对象的数目。比如超过缓存大小时根据LRU算法移除的对象，以及过期的对象。<br>STAT bytes_read 1284        memcached服务器从网络读取的总的字节数。<br>STAT bytes_written 5362        memcached服务器发送到网络的总的字节数。<br>STAT limit_maxbytes 67108864 memcached服务缓存允许使用的最大字节数。这里为67108864字节，也就是是64M.与我们启动memcached服务设置的大小一致。<br>STAT threads 1                被请求的工作线程的总数量。<br>END</p>
+<h1 id="PHP安装对Memcached的支持">PHP安装对Memcached的支持</h1><h3 id="php有两个版本的memcached客户端这里介绍memcached这个是新版的客户端基于libmemcached，所以必须要安装libmemcached">php有两个版本的memcached客户端这里介绍memcached这个是新版的客户端基于libmemcached，所以必须要安装libmemcached</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[root@XiaoFeng lnmp]<span class="preprocessor">#</span></span><br><span class="line">wget https:<span class="comment">//launchpad.net/libmemcached/1.0/1.0.18/+download/libmemcached-1.0.18.tar.gz</span></span><br><span class="line">[root@XiaoFeng lnmp]<span class="preprocessor"># tar -zxf libmemcached-<span class="number">1.0</span><span class="number">.18</span>.tar.gz </span></span><br><span class="line">[root@XiaoFeng lnmp]<span class="preprocessor"># cd libmemcached-<span class="number">1.0</span><span class="number">.18</span></span></span><br><span class="line">[root@XiaoFeng libmemcached-<span class="number">1.0</span><span class="number">.18</span>]<span class="preprocessor"># ./configure --prefix=/usr/local/libmemcached</span></span><br><span class="line">[root@XiaoFeng libmemcached-<span class="number">1.0</span><span class="number">.18</span>]<span class="preprocessor"># make &amp;&amp; make install</span></span><br></pre></td></tr></table></figure>
+<h2 id="安装Memcached的PHP扩展">安装Memcached的PHP扩展</h2><p><code>[root@XiaoFeng lnmp]#wget https://pecl.php.net/get/memcached-2.2.0.tgz</code><br><code>[root@XiaoFeng lnmp]# tar -xzf memcached-2.2.0.tgz</code></p>
+<p>解压后的源码没有配置文件需要先生成配置文件phpize<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@XiaoFeng memcached-<span class="number">2.2</span><span class="number">.0</span>]<span class="preprocessor"># /usr/local/php/bin/phpize</span></span><br><span class="line">[root@XiaoFeng memcached-<span class="number">2.2</span><span class="number">.0</span>]<span class="preprocessor"># ./configure --enable-memcached --with-php-config=/usr/local/php/bin/php-config --with-libmemcached-dir=/usr/local/libmemcached --disable-memcached-sasl</span></span><br><span class="line">[root@XiaoFeng memcached-<span class="number">2.2</span><span class="number">.0</span>]<span class="preprocessor"># make &amp;&amp; make install</span></span><br></pre></td></tr></table></figure></p>
+<p>修改php.ini添加extension = “memcached.so”就可以<br><code>[root@XiaoFeng memcached-2.2.0]#cd /usr/local/php/etc</code><br><code>[root@XiaoFeng etc]# vim php.ini</code><br>写个php文件测试<br><figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">        <span class="variable">$mem</span> = new Memcached;</span><br><span class="line">        <span class="variable">$mem-</span>&gt;addServer(<span class="string">'127.0.0.1'</span>,<span class="number">11211</span>);</span><br><span class="line">        <span class="variable">$mem-</span>&gt;set(<span class="string">'test'</span>,<span class="string">"hello world!"</span>);</span><br><span class="line">        <span class="variable">$val</span> = <span class="variable">$mem-</span>&gt;get(<span class="string">'test'</span>);</span><br><span class="line">        echo <span class="variable">$val</span>;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure></p>
+<p><span style="color:hotpink">Memcached技术笔记,css,js,html,转载请注明出处^-^  </span><br><span style="color:red">小风博客<a href="http://xfphp.cn">http://xfphp.cn</a></span>&#8195;&#8194;<span style="color:red">小风网络<a href="http://www.hotxf.com" target="_blank" rel="external">http://www.hotxf.com</a></span></p>
+</span>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Memcached/" rel="tag">#Memcached</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/12/02/win8添加右键新建内容/" rel="next">win8添加右键新建php,css,js,html</a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2015/12/02/Memcached/"
+     data-title="Memcached技术笔记"
+     data-content=""
+     data-url="http://xfphp.cn/2015/12/02/Memcached/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+
+            </div>
+
+            
+
+            
+              <div class="comments" id="comments">
+                
+                  <div class="ds-thread" data-thread-key="2015/12/02/Memcached/"
+                       data-title="Memcached技术笔记" data-url="http://xfphp.cn/2015/12/02/Memcached/">
+                  </div>
+                
+              </div>
+            
+        </div>
+
+        
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="/images/default_avatar.jpg" alt="XiaoFeng" itemprop="image"/>
+          <p class="site-author-name" itemprop="name">XiaoFeng</p>
+        </div>
+        <p class="site-description motion-element" itemprop="description">业精于勤而荒于嬉,行成于思而毁于随</p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">15</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            <a href="/categories">
+              <span class="site-state-item-count">12</span>
+              <span class="site-state-item-name">分类</span>
+              </a>
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">16</span>
+              <span class="site-state-item-name">标签</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="http://xfphp.cn" rel="alternate">
+              <i class="menu-item-icon icon-feed"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="http://github.com/sjdwm" target="_blank">GitHub</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://gitcafe.com/sjdwm" target="_blank">GitCafe</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/sjdwm" target="_blank">Weibo</a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="http://creativecommons.org/licenses/by-nc-sa/4.0" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            <p class="site-author-name">links</p>
+            
+              <span class="links-of-author-item">
+              <a href="http://www.hotxf.com" target="_blank">小风网络</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://hotxf.com/dh" target="_blank">小风导航</a>
+              </span>
+            
+              <span class="links-of-author-item">
+              <a href="http://sjdwm.blog.51cto.com" target="_blank">51CTO博客</a>
+              </span>
+            
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Memcache技术笔记"><span class="nav-number">1.</span> <span class="nav-text">Memcache技术笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、基本概念"><span class="nav-number">1.0.1.</span> <span class="nav-text">一、基本概念</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一．环境介绍"><span class="nav-number">1.1.</span> <span class="nav-text">一．环境介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二．部署安装"><span class="nav-number">1.2.</span> <span class="nav-text">二．部署安装</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#PHP安装对Memcached的支持"><span class="nav-number">2.</span> <span class="nav-text">PHP安装对Memcached的支持</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#php有两个版本的memcached客户端这里介绍memcached这个是新版的客户端基于libmemcached，所以必须要安装libmemcached"><span class="nav-number">2.0.1.</span> <span class="nav-text">php有两个版本的memcached客户端这里介绍memcached这个是新版的客户端基于libmemcached，所以必须要安装libmemcached</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装Memcached的PHP扩展"><span class="nav-number">2.1.</span> <span class="nav-text">安装Memcached的PHP扩展</span></a></li></ol></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+    </main>
+
+    <footer id="footer" class="footer">
+        <div class="footer-inner">
+            <div class="copyright" >
+  
+  &copy; &nbsp; 
+  <span itemprop="copyrightYear">2015</span>
+  <span class="with-love">
+    <i class="icon-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">XiaoFeng</span>
+  <span class="with-love">
+    <i class="icon-heart"></i>
+  </span>
+  <a id="translateLink" href="javascript:translatePage();" title="简繁切换">简体中文</a>
+<script type="text/javascript" src="http://xfphp.cn/js/tw_cn.js"></script>
+<script type="text/javascript">
+var defaultEncoding = 2; //网站编写字体是否繁体，1-繁体，2-简体
+var translateDelay = 0; //延迟时间,若不在前, 要设定延迟翻译时间, 如100表示100ms,默认为0
+var cookieDomain = "http://xfphp.cn/"; //Cookie地址, 一定要设定, 通常为你的网址
+var msgToTraditionalChinese = "繁體中文"; //此处可以更改为你想要显示的文字
+var msgToSimplifiedChinese = "简体中文"; //同上，但两处均不建议更改
+var translateButtonId = "translateLink"; //默认互换id
+translateInitilization();
+</script>
+<span class="with-love">
+    <i class="icon-heart"></i>
+  </span>
+<span><a href="http://tongji.baidu.com/web/welcome/ico?s=86d06691f9b1e1e0d9e148037bb0bfc3" target="_blank">百度统计</a></span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io" target="_blank">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next" target="_blank">
+    NexT.Mist
+  </a>
+</div>
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>&nbsp; &nbsp; 
+<span id="busuanzi_container_site_pv">
+    本站总访问量<span id="busuanzi_value_site_pv"></span>次
+</span>
+
+
+        </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+</div>
+
+<script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+  
+    
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"sjd"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//hotxf.com/js/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+    
+    
+  
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.4"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.4"></script>
+  
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/js/motion_global.js?v=0.4.4" id="motion.global"></script>
+
+
+
+  <script type="text/javascript" src="/js/search-toggle.js"></script>
+
+
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.4" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 0.4 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    var $tocContent = $('.post-toc-content');
+    if (isDesktop() && CONFIG.sidebar === 'post') {
+      if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+        displaySidebar();
+      }
+    }
+  });
+</script>
+
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        if (CONFIG.sidebar === 'always') {
+            displaySidebar();
+        }
+    });
+</script>
+
+
+
+
+
+
+
+
+<!-- lazyload -->
+<script type="text/javascript" src="/js/lazyload.js"></script>
+<script type="text/javascript">
+    jQuery(function () {
+        jQuery("#posts img").lazyload({
+            placeholder: "/images/loading.gif",
+            effect: "fadeIn"
+        });
+    });
+</script>
+</body>
+</html>
