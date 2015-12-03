@@ -4,14 +4,38 @@
 
     
   <url>
+    <loc>http://xfphp.cn/2015/12/03/redis/</loc>
+    <lastmod>2015-12-03T10:32:56.739Z</lastmod>
+    <data>
+        <display>
+        <title>Redis3.0.5安装</title>
+        <pubTime>2015-12-03T08:59:05.000Z</pubTime>
+        
+        <tag>PHP缓存</tag>
+         
+        <tag>Redis</tag>
+         
+         
+           
+             
+              <breadCrumb title="Redis" url="http://xfphp.cn/categories/Redis/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://xfphp.cn/2015/12/02/Memcached/</loc>
-    <lastmod>2015-12-02T15:55:04.833Z</lastmod>
+    <lastmod>2015-12-03T10:26:57.102Z</lastmod>
     <data>
         <display>
         <title>Memcached技术笔记</title>
         <pubTime>2015-12-02T14:44:16.000Z</pubTime>
         
         <tag>Memcached</tag>
+         
+        <tag>PHP缓存</tag>
          
          
            
