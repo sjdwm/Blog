@@ -45,7 +45,7 @@
 <meta property="og:url" content="http://xfphp.cn/2015/12/03/redis/index.html">
 <meta property="og:site_name" content="XiaoFeng Blog">
 <meta property="og:description" content="Redis安装redis是一个key-value存储系统。和Memcached类似，它支持存储的value类型相对更多安装很简单12345[root@XiaoFeng local]wget http://download.redis.io/releases/redis-3.0.5.tar.gz[root@XiaoFeng local]# tar -zxf redis-3.0.5.gz[root@X">
-<meta property="og:updated_time" content="2015-12-03T10:32:56.739Z">
+<meta property="og:updated_time" content="2015-12-04T07:11:50.272Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Redis3.0.5安装">
 <meta name="twitter:description" content="Redis安装redis是一个key-value存储系统。和Memcached类似，它支持存储的value类型相对更多安装很简单12345[root@XiaoFeng local]wget http://download.redis.io/releases/redis-3.0.5.tar.gz[root@XiaoFeng local]# tar -zxf redis-3.0.5.gz[root@X">
@@ -251,7 +251,7 @@ var _hmt = _hmt || [];
 <p>查找daemonize启用后台运行,默认端口号port 6379<br>将daemonize no改为daemonize yes<br>启动redis<br><code>[root@XiaoFeng redis]# ./src/redis-server redis.conf</code></p>
 <h1 id="为php安装redis扩展phpredis">为php安装redis扩展phpredis</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[root@XiaoFeng lnmp]<span class="preprocessor">#wget https:<span class="comment">//pecl.php.net/get/redis-2.2.7.tgz</span></span></span><br><span class="line">[root@XiaoFeng lnmp]<span class="preprocessor"># tar -zxf redis-<span class="number">2.2</span><span class="number">.7</span>.tgz</span></span><br><span class="line">[root@XiaoFeng redis-<span class="number">2.2</span><span class="number">.7</span>]<span class="preprocessor"># /usr/local/php/bin/phpize</span></span><br><span class="line">[root@XiaoFeng redis-<span class="number">2.2</span><span class="number">.7</span>]<span class="preprocessor"># ./configure --with-php-config=/usr/local/php/bin/php-config</span></span><br><span class="line">[root@XiaoFeng redis-<span class="number">2.2</span><span class="number">.7</span>]<span class="preprocessor"># make &amp;&amp; make install</span></span><br></pre></td></tr></table></figure>
 <p>配置PHP加载扩展<br><code>[root@XiaoFeng redis-2.2.7]# vim /usr/local/php/etc/php.ini</code><br><code>extension=redis.so</code><br>查看phpinfo<br>连接测试<br>C:\Users\枫叶&gt;telnet 192.168.1.125 6379</p>
-<p><span style="color:hotpink">Redis3.0.5安装,转载请注明出处^-^  </span><br><span style="color:red">小风博客<a href="http://xfphp.cn">http://xfphp.cn</a></span>&#8195;&#8194;<span style="color:red">小风网络<a href="http://www.hotxf.com" target="_blank" rel="external">http://www.hotxf.com</a></span></p>
+<p><span style="color:hotpink">本文出自 “小风博客” BY:小风  如果你喜欢,转载请务必保留此出处^_^  </span><br><span style="color:red">小风博客&nbsp; <a href="http://www.xfphp.cn" target="_blank" rel="external">http://www.xfphp.cn</a></span>&#8195;&#8194;<span style="color:red">小风网络 <a href="http://www.hotxf.com" target="_blank" rel="external">http://www.hotxf.com</a></span></p>
 </span>
       
     </div>

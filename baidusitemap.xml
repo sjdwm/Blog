@@ -4,52 +4,8 @@
 
     
   <url>
-    <loc>http://xfphp.cn/2015/12/03/redis/</loc>
-    <lastmod>2015-12-03T10:32:56.739Z</lastmod>
-    <data>
-        <display>
-        <title>Redis3.0.5安装</title>
-        <pubTime>2015-12-03T08:59:05.000Z</pubTime>
-        
-        <tag>PHP缓存</tag>
-         
-        <tag>Redis</tag>
-         
-         
-           
-             
-              <breadCrumb title="Redis" url="http://xfphp.cn/categories/Redis/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://xfphp.cn/2015/12/02/Memcached/</loc>
-    <lastmod>2015-12-03T10:26:57.102Z</lastmod>
-    <data>
-        <display>
-        <title>Memcached技术笔记</title>
-        <pubTime>2015-12-02T14:44:16.000Z</pubTime>
-        
-        <tag>Memcached</tag>
-         
-        <tag>PHP缓存</tag>
-         
-         
-           
-             
-              <breadCrumb title="Memcached" url="http://xfphp.cn/categories/Memcached/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://xfphp.cn/2015/12/02/win8%E6%B7%BB%E5%8A%A0%E5%8F%B3%E9%94%AE%E6%96%B0%E5%BB%BA%E5%86%85%E5%AE%B9/</loc>
-    <lastmod>2015-12-02T06:58:43.619Z</lastmod>
+    <lastmod>2015-12-04T07:17:14.369Z</lastmod>
     <data>
         <display>
         <title>win8添加右键新建php,css,js,html</title>
@@ -67,33 +23,9 @@
     </url>
 
     
-    
-    
-    
-    
-  <url>
-    <loc>http://xfphp.cn/2015/10/19/%E5%8D%81%E5%B9%B4/</loc>
-    <lastmod>2015-11-21T15:33:48.195Z</lastmod>
-    <data>
-        <display>
-        <title>新的开始</title>
-        <pubTime>2015-10-19T04:40:01.000Z</pubTime>
-        
-        <tag>心情</tag>
-         
-         
-           
-             
-              <breadCrumb title="随笔" url="http://xfphp.cn/categories/%E9%9A%8F%E7%AC%94/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
   <url>
     <loc>http://xfphp.cn/2015/10/28/sqlbak/</loc>
-    <lastmod>2015-11-18T03:48:54.608Z</lastmod>
+    <lastmod>2015-12-04T07:17:02.138Z</lastmod>
     <data>
         <display>
         <title>Linux_Mysql备份脚本</title>
@@ -127,24 +59,49 @@
 
     
   <url>
-    <loc>http://xfphp.cn/2015/09/20/mysqlbak/</loc>
-    <lastmod>2015-11-18T03:48:37.810Z</lastmod>
+    <loc>http://xfphp.cn/2015/11/06/php%E8%AE%BF%E9%97%AE%E9%87%8F%E7%BB%9F%E8%AE%A1/</loc>
+    <lastmod>2015-12-04T07:16:49.055Z</lastmod>
     <data>
         <display>
-        <title>Mysql在windows下的自动备份</title>
-        <pubTime>2015-09-20T02:15:57.000Z</pubTime>
+        <title>php访问量统计</title>
+        <pubTime>2015-11-06T05:14:07.000Z</pubTime>
         
-        <tag>Mysql</tag>
+        <tag>OOP</tag>
          
-        <tag>Mysql自动备份</tag>
+        <tag>PHP</tag>
+         
+        <tag>访问量统计</tag>
+         
+        <tag>面向对象</tag>
          
          
            
              
-              <breadCrumb title="Mysql" url="http://xfphp.cn/categories/Mysql/"/>
+              <breadCrumb title="PHP" url="http://xfphp.cn/categories/PHP/"/>
           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://xfphp.cn/2015/11/06/php-oop/</loc>
+    <lastmod>2015-12-04T07:16:32.002Z</lastmod>
+    <data>
+        <display>
+        <title>PHP OOP 面向对象简说</title>
+        <pubTime>2015-11-06T01:59:01.000Z</pubTime>
+        
+        <tag>OOP</tag>
+         
+        <tag>PHP</tag>
+         
+        <tag>面向对象</tag>
+         
+         
+           
              
-              <breadCrumb title="Mysql自动备份" url="http://xfphp.cn/categories/Mysql/Mysql%E8%87%AA%E5%8A%A8%E5%A4%87%E4%BB%BD/"/>
+              <breadCrumb title="PHP" url="http://xfphp.cn/categories/PHP/"/>
           
         </display>
     </data>
@@ -153,7 +110,7 @@
     
   <url>
     <loc>http://xfphp.cn/2015/10/25/php/</loc>
-    <lastmod>2015-11-18T03:39:30.921Z</lastmod>
+    <lastmod>2015-12-04T07:16:08.828Z</lastmod>
     <data>
         <display>
         <title>CentOS7_LNMP(第三篇)_PHP5.6.14编译安装</title>
@@ -186,58 +143,8 @@
 
     
   <url>
-    <loc>http://xfphp.cn/2015/11/06/php%E8%AE%BF%E9%97%AE%E9%87%8F%E7%BB%9F%E8%AE%A1/</loc>
-    <lastmod>2015-11-18T03:38:20.782Z</lastmod>
-    <data>
-        <display>
-        <title>php访问量统计</title>
-        <pubTime>2015-11-06T05:14:07.000Z</pubTime>
-        
-        <tag>OOP</tag>
-         
-        <tag>PHP</tag>
-         
-        <tag>访问量统计</tag>
-         
-        <tag>面向对象</tag>
-         
-         
-           
-             
-              <breadCrumb title="PHP" url="http://xfphp.cn/categories/PHP/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://xfphp.cn/2015/11/06/php-oop/</loc>
-    <lastmod>2015-11-18T03:36:22.162Z</lastmod>
-    <data>
-        <display>
-        <title>PHP OOP 面向对象简说</title>
-        <pubTime>2015-11-06T01:59:01.000Z</pubTime>
-        
-        <tag>OOP</tag>
-         
-        <tag>PHP</tag>
-         
-        <tag>面向对象</tag>
-         
-         
-           
-             
-              <breadCrumb title="PHP" url="http://xfphp.cn/categories/PHP/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://xfphp.cn/2015/11/14/mysql-link/</loc>
-    <lastmod>2015-11-18T03:36:11.248Z</lastmod>
+    <lastmod>2015-12-04T07:15:49.125Z</lastmod>
     <data>
         <display>
         <title>PHP连接Mysql的几种方法</title>
@@ -258,8 +165,33 @@
 
     
   <url>
+    <loc>http://xfphp.cn/2015/09/20/mysqlbak/</loc>
+    <lastmod>2015-12-04T07:15:35.698Z</lastmod>
+    <data>
+        <display>
+        <title>Mysql在windows下的自动备份</title>
+        <pubTime>2015-09-20T02:15:57.000Z</pubTime>
+        
+        <tag>Mysql</tag>
+         
+        <tag>Mysql自动备份</tag>
+         
+         
+           
+             
+              <breadCrumb title="Mysql" url="http://xfphp.cn/categories/Mysql/"/>
+          
+             
+              <breadCrumb title="Mysql自动备份" url="http://xfphp.cn/categories/Mysql/Mysql%E8%87%AA%E5%8A%A8%E5%A4%87%E4%BB%BD/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://xfphp.cn/2015/10/25/mysql/</loc>
-    <lastmod>2015-10-28T14:28:01.530Z</lastmod>
+    <lastmod>2015-12-04T07:15:21.336Z</lastmod>
     <data>
         <display>
         <title>Mysql5.6.26编译安装</title>
@@ -289,7 +221,7 @@
     
   <url>
     <loc>http://xfphp.cn/2015/10/23/mariadb/</loc>
-    <lastmod>2015-10-28T14:27:54.227Z</lastmod>
+    <lastmod>2015-12-04T07:15:09.277Z</lastmod>
     <data>
         <display>
         <title>CentOS7_LNMP(第二篇)_MariaDB10.0.21编译安装</title>
@@ -322,8 +254,28 @@
 
     
   <url>
+    <loc>http://xfphp.cn/2015/10/19/hello-world/</loc>
+    <lastmod>2015-12-04T07:14:50.238Z</lastmod>
+    <data>
+        <display>
+        <title>Hello World</title>
+        <pubTime>2015-10-19T13:26:52.000Z</pubTime>
+        
+        <tag>心情</tag>
+         
+         
+           
+             
+              <breadCrumb title="随笔" url="http://xfphp.cn/categories/%E9%9A%8F%E7%AC%94/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://xfphp.cn/2015/10/23/centos-nginx/</loc>
-    <lastmod>2015-10-28T14:27:45.353Z</lastmod>
+    <lastmod>2015-12-04T07:14:22.596Z</lastmod>
     <data>
         <display>
         <title>CentOS7_LNMP(第一篇)_Nginx1.95编译安装</title>
@@ -355,15 +307,61 @@
     </url>
 
     
+  <url>
+    <loc>http://xfphp.cn/2015/12/02/Memcached/</loc>
+    <lastmod>2015-12-04T07:13:50.421Z</lastmod>
+    <data>
+        <display>
+        <title>Memcached技术笔记</title>
+        <pubTime>2015-12-02T14:44:16.000Z</pubTime>
+        
+        <tag>Memcached</tag>
+         
+        <tag>PHP缓存</tag>
+         
+         
+           
+             
+              <breadCrumb title="Memcached" url="http://xfphp.cn/categories/Memcached/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://xfphp.cn/2015/12/03/redis/</loc>
+    <lastmod>2015-12-04T07:11:50.272Z</lastmod>
+    <data>
+        <display>
+        <title>Redis3.0.5安装</title>
+        <pubTime>2015-12-03T08:59:05.000Z</pubTime>
+        
+        <tag>PHP缓存</tag>
+         
+        <tag>Redis</tag>
+         
+         
+           
+             
+              <breadCrumb title="Redis" url="http://xfphp.cn/categories/Redis/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+    
+    
     
     
   <url>
-    <loc>http://xfphp.cn/2015/10/19/hello-world/</loc>
-    <lastmod>2015-10-24T02:50:42.360Z</lastmod>
+    <loc>http://xfphp.cn/2015/10/19/%E5%8D%81%E5%B9%B4/</loc>
+    <lastmod>2015-11-21T15:33:48.195Z</lastmod>
     <data>
         <display>
-        <title>Hello World</title>
-        <pubTime>2015-10-19T13:26:52.000Z</pubTime>
+        <title>新的开始</title>
+        <pubTime>2015-10-19T04:40:01.000Z</pubTime>
         
         <tag>心情</tag>
          
@@ -376,6 +374,8 @@
     </data>
     </url>
 
+    
+    
     
   <url>
     <loc>http://xfphp.cn/2015/09/19/%E8%90%BD%E5%8F%B6%E4%B8%8D%E7%9F%A5%E7%A7%8B/</loc>
