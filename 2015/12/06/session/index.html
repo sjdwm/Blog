@@ -41,20 +41,26 @@
 
 <meta name="description" content="session执行原理 客户端 登录 服务器， 在服务器上存储了session， 服务器会为该客户端创建一个session文件， 并把 session id 存储到 客户端的cookie上
 
-关于session的配置 session.save_handler = files            session保存在文件中 session.save_path = “c:/wamp/tmp”">
+关于session的配置
+session.save_handler = files            session保存在文件中
+session.save_path = &quot;c:/wamp/tmp&quot;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Session技术笔记">
 <meta property="og:url" content="http://xfphp.cn/2015/12/06/session/index.html">
 <meta property="og:site_name" content="XiaoFeng Blog">
 <meta property="og:description" content="session执行原理 客户端 登录 服务器， 在服务器上存储了session， 服务器会为该客户端创建一个session文件， 并把 session id 存储到 客户端的cookie上
 
-关于session的配置 session.save_handler = files            session保存在文件中 session.save_path = “c:/wamp/tmp”">
-<meta property="og:updated_time" content="2015-12-06T15:23:53.870Z">
+关于session的配置
+session.save_handler = files            session保存在文件中
+session.save_path = &quot;c:/wamp/tmp&quot;">
+<meta property="og:updated_time" content="2015-12-06T15:30:44.799Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Session技术笔记">
 <meta name="twitter:description" content="session执行原理 客户端 登录 服务器， 在服务器上存储了session， 服务器会为该客户端创建一个session文件， 并把 session id 存储到 客户端的cookie上
 
-关于session的配置 session.save_handler = files            session保存在文件中 session.save_path = “c:/wamp/tmp”">
+关于session的配置
+session.save_handler = files            session保存在文件中
+session.save_path = &quot;c:/wamp/tmp&quot;">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -256,8 +262,23 @@ var _hmt = _hmt || [];
         <span itemprop="articleBody"><ol>
 <li><p>session执行原理<br> 客户端 登录 服务器， 在服务器上存储了session， 服务器会为该客户端创建一个session文件，<br> 并把 session id 存储到 客户端的cookie上</p>
 </li>
-<li><p>关于session的配置<br> session.save_handler = files            session保存在文件中<br> session.save_path = “c:/wamp/tmp”        保存文件的路径<br> session.use_cookies = 1                    是否使用cookie<br> session.use_only_cookies = 1            是否只使用cookie<br> session.name = PHPSESSID                cookie中sessionid的键名<br> session.auto_start = 0                    是否自动开启session<br> session.cookie_lifetime = 0                sessionid在 cookie的生存周期<br> session.cookie_path = /<br> session.cookie_domain =<br> session.cookie_httponly =<br> session.serialize_handler = php            文件中存储session数据的方法<br> session.gc_probability = 1<br> session.gc_divisor = 1000<br> session.gc_maxlifetime = 1440            session默认保存时间 秒<br> session.use_trans_sid = 0</p>
-</li>
+<li><p>关于session的配置</p>
+<pre><code>session<span class="class">.save_handler</span> = files            session保存在文件中
+session<span class="class">.save_path</span> = <span class="string">"c:/wamp/tmp"</span>        保存文件的路径
+session<span class="class">.use_cookies</span> = <span class="number">1</span>                    是否使用cookie
+session<span class="class">.use_only_cookies</span> = <span class="number">1</span>            是否只使用cookie
+session<span class="class">.name</span> = PHPSESSID                cookie中sessionid的键名
+session<span class="class">.auto_start</span> = <span class="number">0</span>                    是否自动开启session
+session<span class="class">.cookie_lifetime</span> = <span class="number">0</span>                sessionid在 cookie的生存周期
+session<span class="class">.cookie_path</span> = /
+session<span class="class">.cookie_domain</span> =
+session<span class="class">.cookie_httponly</span> = 
+session<span class="class">.serialize_handler</span> = php            文件中存储session数据的方法
+session<span class="class">.gc_probability</span> = <span class="number">1</span>
+session<span class="class">.gc_divisor</span> = <span class="number">1000</span>
+session<span class="class">.gc_maxlifetime</span> = <span class="number">1440</span>            session默认保存时间 秒
+session<span class="class">.use_trans_sid</span> = <span class="number">0</span>
+</code></pre></li>
 <li><p>自定义session<br> ① 设置 session的处理 方式为 用户自定义</p>
 <pre><code><span class="function"><span class="title">session_module_name</span><span class="params">(<span class="string">'user'</span>)</span></span> 或  <span class="function"><span class="title">ini_set</span><span class="params">(<span class="string">''</span>)</span></span>
 </code></pre><p> ② 设置回调函数 控制session的处理流程</p>
