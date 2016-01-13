@@ -2,13 +2,18 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://xfphp.cn/software/index.html</loc>
-    <lastmod>2015-12-12T09:36:51.894Z</lastmod>
+    <loc>http://xfphp.cn/demo/index.html</loc>
+    <lastmod>2016-01-13T08:08:12.621Z</lastmod>
   </url>
   
   <url>
-    <loc>http://xfphp.cn/demo/index.html</loc>
-    <lastmod>2015-12-09T08:23:36.291Z</lastmod>
+    <loc>http://xfphp.cn/about/index.html</loc>
+    <lastmod>2016-01-13T08:05:51.398Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://xfphp.cn/software/index.html</loc>
+    <lastmod>2015-12-12T09:36:51.894Z</lastmod>
   </url>
   
   <url>
@@ -84,11 +89,6 @@
   <url>
     <loc>http://xfphp.cn/css/header.css</loc>
     <lastmod>2015-12-01T12:02:01.527Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://xfphp.cn/about/index.html</loc>
-    <lastmod>2015-11-30T14:26:53.226Z</lastmod>
   </url>
   
   <url>
