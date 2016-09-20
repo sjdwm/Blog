@@ -2,6 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://xfphp.cn/2016/09/20/svn/</loc>
+    <lastmod>2016-09-20T02:43:30.017Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://xfphp.cn/2015/10/25/php/</loc>
+    <lastmod>2016-09-20T01:27:13.913Z</lastmod>
+  </url>
+  
+  <url>
     <loc>http://xfphp.cn/2016/01/24/ThinkPHPsqlbak/</loc>
     <lastmod>2016-01-24T05:36:18.579Z</lastmod>
   </url>
@@ -44,11 +54,6 @@
   <url>
     <loc>http://xfphp.cn/2015/11/06/php-oop/</loc>
     <lastmod>2015-12-04T07:16:32.002Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://xfphp.cn/2015/10/25/php/</loc>
-    <lastmod>2015-12-04T07:16:08.828Z</lastmod>
   </url>
   
   <url>

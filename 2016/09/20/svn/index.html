@@ -28,7 +28,7 @@
 
 
 
-  <meta name="keywords" content="心情," />
+  <meta name="keywords" content="CentOS,svn," />
 
 
 
@@ -39,25 +39,16 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.4" />
 
 
-<meta name="description" content="xfphp.cn
-昨日之事已在风中冷却，明天的回忆会不会被忘却？我想在这黑暗的城市上空飞行，看看灯火里别人的故事是否也如此的彷徨？
-千家灯火万家难。望着他人的幸福，徒生向往；注目他人的难处，油然怜悯。他们时而欢笑，时而落泪。因为小事而倍感幸福，因为小事而万分感伤。
-那些绽放如花的笑容，那些泪洒如雨的忧伤，都随着时间的流逝或被遗忘，或被掩藏。万物皆无法摆脱时间的摆弄。时间是一个随意的雕刻家，雕塑着一">
+<meta name="description" content="CentOS6 svn安装配置一直想搭建台自己的SVN，一直懒没动手，最近搭建好了写个笔记系统是CentOS6.4上搭建的，以后公司和家里电脑代码同步方便了不用再用U盘了，安装也方便，如果你也有自己的服务器你也可以">
 <meta property="og:type" content="article">
-<meta property="og:title" content="新的开始">
-<meta property="og:url" content="http://xfphp.cn/2015/10/19/十年/index.html">
+<meta property="og:title" content="CentOS6 svn安装配置">
+<meta property="og:url" content="http://xfphp.cn/2016/09/20/svn/index.html">
 <meta property="og:site_name" content="XiaoFeng Blog">
-<meta property="og:description" content="xfphp.cn
-昨日之事已在风中冷却，明天的回忆会不会被忘却？我想在这黑暗的城市上空飞行，看看灯火里别人的故事是否也如此的彷徨？
-千家灯火万家难。望着他人的幸福，徒生向往；注目他人的难处，油然怜悯。他们时而欢笑，时而落泪。因为小事而倍感幸福，因为小事而万分感伤。
-那些绽放如花的笑容，那些泪洒如雨的忧伤，都随着时间的流逝或被遗忘，或被掩藏。万物皆无法摆脱时间的摆弄。时间是一个随意的雕刻家，雕塑着一">
-<meta property="og:updated_time" content="2015-11-21T15:33:48.195Z">
+<meta property="og:description" content="CentOS6 svn安装配置一直想搭建台自己的SVN，一直懒没动手，最近搭建好了写个笔记系统是CentOS6.4上搭建的，以后公司和家里电脑代码同步方便了不用再用U盘了，安装也方便，如果你也有自己的服务器你也可以">
+<meta property="og:updated_time" content="2016-09-20T02:43:30.017Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="新的开始">
-<meta name="twitter:description" content="xfphp.cn
-昨日之事已在风中冷却，明天的回忆会不会被忘却？我想在这黑暗的城市上空飞行，看看灯火里别人的故事是否也如此的彷徨？
-千家灯火万家难。望着他人的幸福，徒生向往；注目他人的难处，油然怜悯。他们时而欢笑，时而落泪。因为小事而倍感幸福，因为小事而万分感伤。
-那些绽放如花的笑容，那些泪洒如雨的忧伤，都随着时间的流逝或被遗忘，或被掩藏。万物皆无法摆脱时间的摆弄。时间是一个随意的雕刻家，雕塑着一">
+<meta name="twitter:title" content="CentOS6 svn安装配置">
+<meta name="twitter:description" content="CentOS6 svn安装配置一直想搭建台自己的SVN，一直懒没动手，最近搭建好了写个笔记系统是CentOS6.4上搭建的，以后公司和家里电脑代码同步方便了不用再用U盘了，安装也方便，如果你也有自己的服务器你也可以">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -83,7 +74,7 @@ var _hmt = _hmt || [];
   s.parentNode.insertBefore(hm, s);
 })();
 </script>
-    <title> 新的开始 // XiaoFeng Blog </title>
+    <title> CentOS6 svn安装配置 // XiaoFeng Blog </title>
 </head>
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 <!--[if lte IE 8]>
@@ -218,7 +209,7 @@ var _hmt = _hmt || [];
           
           
             
-              新的开始
+              CentOS6 svn安装配置
             
           
         </h1>
@@ -227,8 +218,8 @@ var _hmt = _hmt || [];
       <div class="post-meta">
         <span class="post-time">
           发表于
-          <time itemprop="dateCreated" datetime="2015-10-19T12:40:01+08:00" content="2015-10-19">
-            2015-10-19
+          <time itemprop="dateCreated" datetime="2016-09-20T09:30:50+08:00" content="2016-09-20">
+            2016-09-20
           </time>
         </span>
 
@@ -236,7 +227,15 @@ var _hmt = _hmt || [];
           <span class="post-category" >
             &nbsp; | &nbsp; 分类于
             
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/随笔/" itemprop="url" rel="index"><span itemprop="name">随笔</span></a></span>
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/CentOS/" itemprop="url" rel="index"><span itemprop="name">CentOS</span></a></span>
+
+              
+              
+                ， 
+              
+
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a href="/categories/CentOS/svn/" itemprop="url" rel="index"><span itemprop="name">svn</span></a></span>
 
               
               
@@ -249,8 +248,8 @@ var _hmt = _hmt || [];
           
             <span class="post-comments-count">
               &nbsp; | &nbsp;
-              <a href="/2015/10/19/十年/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/19/十年/" itemprop="commentsCount"></span>
+              <a href="/2016/09/20/svn/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/20/svn/" itemprop="commentsCount"></span>
               </a>
             </span>
           
@@ -265,11 +264,13 @@ var _hmt = _hmt || [];
       
 
       
-        <span itemprop="articleBody"><p>xfphp.cn</p>
-<p>昨日之事已在风中冷却，明天的回忆会不会被忘却？我想在这黑暗的城市上空飞行，看看灯火里别人的故事是否也如此的彷徨？</p>
-<p>千家灯火万家难。望着他人的幸福，徒生向往；注目他人的难处，油然怜悯。他们时而欢笑，时而落泪。因为小事而倍感幸福，因为小事而万分感伤。</p>
-<p>那些绽放如花的笑容，那些泪洒如雨的忧伤，都随着时间的流逝或被遗忘，或被掩藏。万物皆无法摆脱时间的摆弄。时间是一个随意的雕刻家，雕塑着一幕幕的喜怒哀乐。</p>
-<p>落寞一幕无人视，繁华一曲谁人听。半生浮萍，一世漂泊，肝肠寸断，所为几何？<br>小风</p>
+        <span itemprop="articleBody"><h3 id="CentOS6_svn安装配置">CentOS6 svn安装配置</h3><p>一直想搭建台自己的SVN，一直懒没动手，最近搭建好了写个笔记<br>系统是CentOS6.4上搭建的，以后公司和家里电脑代码同步方便了<br>不用再用U盘了，安装也方便，如果你也有自己的服务器你也可以</p>
+<a id="more"></a>
+<h4 id="安装SVN服务器">安装SVN服务器</h4><p>1.用yum安装方便<br><code>[root@XiaoFeng /]#yum install subversion</code><br>2.查看是否安装成功<br><code>[root@XiaoFeng /]#svnserve --version</code><br>3.创建SVN目录<br><code>[root@XiaoFeng /]#mkdir /opt/svn/web</code><br>4.建立SVN仓库<br><code>[root@XiaoFeng /]#svnadmin create /opt/svn/web</code><br>5.添加SVN登录账号和密码<br><code>[root@XiaoFeng /]#vim /opt/svn/web/conf/passwd</code><br>6.再设置权限authz,在最后面添加用户组和用户,目录给组受权限<br><code>[root@XiaoFeng /]#vim /opt/svn/web/conf/authz</code><br><figure class="highlight nsis"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="literal">admin</span>=sjd,sjdwm</span><br><span class="line"><span class="literal">user</span>=sjd125</span><br><span class="line">[/]</span><br><span class="line">@<span class="literal">admin</span>=rw</span><br><span class="line">[/shaer]</span><br><span class="line">@<span class="literal">user</span>=rw</span><br></pre></td></tr></table></figure></p>
+<p>rw是用户对所属的目录有读写权限，当然也可以限定。<br>7.最后设定svnserv.conf(配置文件里不能有中文那怕是注释)<br><code>[root@XiaoFeng /]#vim /opt/svn/web/conf/svnserv.conf</code><br><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">anon-access = <span class="constant">none</span> <span class="comment"># 使非授权用户无法访问</span></span><br><span class="line">auth-access = <span class="built_in">write</span> <span class="comment"># 使授权用户有写权限</span></span><br><span class="line">password-db = password</span><br><span class="line">authz-db = authz   <span class="comment"># 访问控制文件</span></span><br><span class="line">realm = /opt/svn/repos <span class="comment"># 认证命名空间，subversion会在认证提示里显示，并且作为凭证缓存的关键字。</span></span><br></pre></td></tr></table></figure></p>
+<p>采用默认配置. 以上语句都必须顶格写, 左侧不能留空格, 否则会出错.<br>8.添加开机启动<br><code>[root@XiaoFeng /]#vim /etc/rc.d/rc.local</code><br>添加(要写全路径)</p>
+<p><code>/usr/bin/svnserver -d -r /opt/svn/web</code><br>9.重起的话先杀死,一般不用重启服务<br><code>[root@XiaoFeng /]#killall svnserve</code><br>再启动<br><code>[root@XiaoFeng /]#svnserve -d -r /opt/svn/web</code><br>10.添加防火墙端口3690</p>
+<p><span style="color:hotpink">本文出自 “小风博客” BY:小风  如果你喜欢,转载请务必保留此出处^_^  </span><br><span style="color:red">小风博客&nbsp; <a href="http://www.xfphp.cn" target="_blank" rel="external">http://www.xfphp.cn</a></span>&#8195;&#8194;<span style="color:red">小风网络 <a href="http://www.hotxf.com" target="_blank" rel="external">http://www.hotxf.com</a></span></p>
 </span>
       
     </div>
@@ -278,7 +279,9 @@ var _hmt = _hmt || [];
       
         <div class="post-tags">
           
-            <a href="/tags/心情/" rel="tag">#心情</a>
+            <a href="/tags/CentOS/" rel="tag">#CentOS</a>
+          
+            <a href="/tags/svn/" rel="tag">#svn</a>
           
         </div>
       
@@ -287,13 +290,11 @@ var _hmt = _hmt || [];
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/10/19/hello-world/" rel="prev">Hello World</a>
-            
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/09/20/mysqlbak/" rel="next">Mysql在windows下的自动备份</a>
+              <a href="/2016/01/24/ThinkPHPsqlbak/" rel="next">ThinkPHP框架里后台加sql在线备份功能</a>
             
           </div>
         </div>
@@ -308,10 +309,10 @@ var _hmt = _hmt || [];
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2015/10/19/十年/"
-     data-title="新的开始"
+        <div class="ds-share flat" data-thread-key="2016/09/20/svn/"
+     data-title="CentOS6 svn安装配置"
      data-content=""
-     data-url="http://xfphp.cn/2015/10/19/十年/">
+     data-url="http://xfphp.cn/2016/09/20/svn/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -338,8 +339,8 @@ var _hmt = _hmt || [];
             
               <div class="comments" id="comments">
                 
-                  <div class="ds-thread" data-thread-key="2015/10/19/十年/"
-                       data-title="新的开始" data-url="http://xfphp.cn/2015/10/19/十年/">
+                  <div class="ds-thread" data-thread-key="2016/09/20/svn/"
+                       data-title="CentOS6 svn安装配置" data-url="http://xfphp.cn/2016/09/20/svn/">
                   </div>
                 
               </div>
@@ -463,7 +464,7 @@ var _hmt = _hmt || [];
           <div class="post-toc">
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#CentOS6_svn安装配置"><span class="nav-number">1.</span> <span class="nav-text">CentOS6 svn安装配置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#安装SVN服务器"><span class="nav-number">1.1.</span> <span class="nav-text">安装SVN服务器</span></a></li></ol></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>

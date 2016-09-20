@@ -45,7 +45,7 @@
 <meta property="og:url" content="http://xfphp.cn/2015/10/25/php/index.html">
 <meta property="og:site_name" content="XiaoFeng Blog">
 <meta property="og:description" content="CentOS7+Nginx1.95+mariadb10.0.21+php5.6.14PHP的安装配置这里要先声明一下，针对Nginx的php安装和针对apache的php安装是有区别的，因为Nginx中的php是以fastcgi的方式结合nginx的，可以理解为nginx代理了php的fastcgi，而apache是把php作为自己的模块来调用的。php官方下载地址: http://www.php">
-<meta property="og:updated_time" content="2015-12-04T07:16:08.828Z">
+<meta property="og:updated_time" content="2016-09-20T01:27:13.913Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CentOS7_LNMP(第三篇)_PHP5.6.14编译安装">
 <meta name="twitter:description" content="CentOS7+Nginx1.95+mariadb10.0.21+php5.6.14PHP的安装配置这里要先声明一下，针对Nginx的php安装和针对apache的php安装是有区别的，因为Nginx中的php是以fastcgi的方式结合nginx的，可以理解为nginx代理了php的fastcgi，而apache是把php作为自己的模块来调用的。php官方下载地址: http://www.php">
@@ -278,7 +278,7 @@ var _hmt = _hmt || [];
 <p>把如下内容写入该文件:<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">[global]</span><br><span class="line">pid = /usr/local/php/var/run/php-fpm<span class="class">.pid</span></span><br><span class="line">error_log = /usr/local/php/var/log/php-fpm<span class="class">.log</span></span><br><span class="line">[www]</span><br><span class="line">listen = /tmp/php-fcgi<span class="class">.sock</span></span><br><span class="line">user = php-fpm</span><br><span class="line">group = php-fpm</span><br><span class="line">listen<span class="class">.owner</span> = nobody</span><br><span class="line">listen<span class="class">.group</span> = nobody</span><br><span class="line">pm = dynamic</span><br><span class="line">pm<span class="class">.max_children</span> = <span class="number">50</span></span><br><span class="line">pm<span class="class">.start_servers</span> = <span class="number">20</span></span><br><span class="line">pm<span class="class">.min_spare_servers</span> = <span class="number">5</span></span><br><span class="line">pm<span class="class">.max_spare_servers</span> = <span class="number">35</span></span><br><span class="line">pm<span class="class">.max_requests</span> = <span class="number">500</span></span><br><span class="line">rlimit_files = <span class="number">1024</span></span><br></pre></td></tr></table></figure></p>
 <p>6.保存配置文件后，检验配置是否正确的方法为:<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@XiaoFeng etc]<span class="preprocessor"># /usr/local/php/sbin/php-fpm -t</span></span><br><span class="line">[<span class="number">26</span>-Oct-<span class="number">2015</span> <span class="number">03</span>:<span class="number">52</span>:<span class="number">16</span>] NOTICE: configuration file /usr/local/php/etc/php-fpm.conf test is successful</span><br></pre></td></tr></table></figure></p>
 <p>如果出现诸如 “test is successful” 字样，说明配置没有问题。<br>7.启动php-fpm<br><figure class="highlight autoit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[root<span class="constant">@XiaoFeng</span> etc]<span class="preprocessor"># cp /lnmp/php-5.6.14/sapi/fpm/init.d.php-fpm /etc/init.d/php-fpm</span></span><br><span class="line">[root<span class="constant">@XiaoFeng</span> etc]<span class="preprocessor"># chmod 755 /etc/init.d/php-fpm</span></span><br><span class="line">[root<span class="constant">@XiaoFeng</span> etc]<span class="preprocessor"># service php-fpm start</span></span><br><span class="line">Starting php-fpm  done</span><br></pre></td></tr></table></figure></p>
-<p>8.让它开机启动，执行:<br><code>[root@XiaoFeng etc]# chkconfig php-fpm on</code><br>查看是否开机启动:<br><code>[root@XiaoFeng etc]# chkconfig --list php-fmp</code><br>php-fpm            0:关    1:关    2:开    3:开    4:开    5:开    6:关<br>检测是否启动:<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@XiaoFeng etc]<span class="preprocessor"># ps aux |grep php-fpm</span></span><br><span class="line">php-fpm  <span class="number">59814</span>  <span class="number">0.0</span>  <span class="number">0.4</span> <span class="number">112808</span>  <span class="number">4312</span> ?        S    <span class="number">03</span>:<span class="number">54</span>   <span class="number">0</span>:<span class="number">00</span> php-fpm: pool www</span><br><span class="line">php-fpm  <span class="number">59815</span>  <span class="number">0.0</span>  <span class="number">0.4</span> <span class="number">112808</span>  <span class="number">4316</span> ?        S    <span class="number">03</span>:<span class="number">54</span>   <span class="number">0</span>:<span class="number">00</span> php-fpm: pool www</span><br></pre></td></tr></table></figure></p>
+<p>8.让它开机启动，执行:<br><code>[root@XiaoFeng etc]# chkconfig php-fpm on</code><br>查看是否开机启动:<br><code>[root@XiaoFeng etc]# chkconfig --list php-fpm</code><br>php-fpm            0:关    1:关    2:开    3:开    4:开    5:开    6:关<br>检测是否启动:<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@XiaoFeng etc]<span class="preprocessor"># ps aux |grep php-fpm</span></span><br><span class="line">php-fpm  <span class="number">59814</span>  <span class="number">0.0</span>  <span class="number">0.4</span> <span class="number">112808</span>  <span class="number">4312</span> ?        S    <span class="number">03</span>:<span class="number">54</span>   <span class="number">0</span>:<span class="number">00</span> php-fpm: pool www</span><br><span class="line">php-fpm  <span class="number">59815</span>  <span class="number">0.0</span>  <span class="number">0.4</span> <span class="number">112808</span>  <span class="number">4316</span> ?        S    <span class="number">03</span>:<span class="number">54</span>   <span class="number">0</span>:<span class="number">00</span> php-fpm: pool www</span><br></pre></td></tr></table></figure></p>
 <p>9.PHP已经安装完了,接下来要配置nginx来支持php<br><code>[root@XiaoFeng conf]# cd /usr/local/nginx/conf</code><br><code>[root@XiaoFeng conf]# vim nginx.conf</code><br>Vim里set nu 显示行号,按行号加入下面内容</p>
 <ol>
 <li>user nginx;</li>
@@ -405,21 +405,21 @@ var _hmt = _hmt || [];
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">18</span>
+              <span class="site-state-item-count">19</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
 
           <div class="site-state-item site-state-categories">
             <a href="/categories">
-              <span class="site-state-item-count">15</span>
+              <span class="site-state-item-count">16</span>
               <span class="site-state-item-name">分类</span>
               </a>
           </div>
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">19</span>
+              <span class="site-state-item-count">21</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>

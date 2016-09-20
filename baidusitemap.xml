@@ -4,6 +4,65 @@
 
     
   <url>
+    <loc>http://xfphp.cn/2016/09/20/svn/</loc>
+    <lastmod>2016-09-20T02:43:30.017Z</lastmod>
+    <data>
+        <display>
+        <title>CentOS6 svn安装配置</title>
+        <pubTime>2016-09-20T01:30:50.000Z</pubTime>
+        
+        <tag>CentOS</tag>
+         
+        <tag>svn</tag>
+         
+         
+           
+             
+              <breadCrumb title="CentOS" url="http://xfphp.cn/categories/CentOS/"/>
+          
+             
+              <breadCrumb title="svn" url="http://xfphp.cn/categories/CentOS/svn/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://xfphp.cn/2015/10/25/php/</loc>
+    <lastmod>2016-09-20T01:27:13.913Z</lastmod>
+    <data>
+        <display>
+        <title>CentOS7_LNMP(第三篇)_PHP5.6.14编译安装</title>
+        <pubTime>2015-10-25T12:38:03.000Z</pubTime>
+        
+        <tag>CentOS7</tag>
+         
+        <tag>LNMP</tag>
+         
+        <tag>MariaDB</tag>
+         
+        <tag>Nginx</tag>
+         
+        <tag>PHP</tag>
+         
+         
+           
+             
+              <breadCrumb title="CentOS" url="http://xfphp.cn/categories/CentOS/"/>
+          
+             
+              <breadCrumb title="LNMP" url="http://xfphp.cn/categories/CentOS/LNMP/"/>
+          
+             
+              <breadCrumb title="PHP" url="http://xfphp.cn/categories/CentOS/LNMP/PHP/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://xfphp.cn/2016/01/24/ThinkPHPsqlbak/</loc>
     <lastmod>2016-01-24T05:36:18.579Z</lastmod>
     <data>
@@ -145,40 +204,6 @@
            
              
               <breadCrumb title="PHP" url="http://xfphp.cn/categories/PHP/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://xfphp.cn/2015/10/25/php/</loc>
-    <lastmod>2015-12-04T07:16:08.828Z</lastmod>
-    <data>
-        <display>
-        <title>CentOS7_LNMP(第三篇)_PHP5.6.14编译安装</title>
-        <pubTime>2015-10-25T12:38:03.000Z</pubTime>
-        
-        <tag>CentOS7</tag>
-         
-        <tag>LNMP</tag>
-         
-        <tag>MariaDB</tag>
-         
-        <tag>Nginx</tag>
-         
-        <tag>PHP</tag>
-         
-         
-           
-             
-              <breadCrumb title="CentOS" url="http://xfphp.cn/categories/CentOS/"/>
-          
-             
-              <breadCrumb title="LNMP" url="http://xfphp.cn/categories/CentOS/LNMP/"/>
-          
-             
-              <breadCrumb title="PHP" url="http://xfphp.cn/categories/CentOS/LNMP/PHP/"/>
           
         </display>
     </data>
